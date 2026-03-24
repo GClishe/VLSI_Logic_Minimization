@@ -13,3 +13,19 @@
 # The majority of three function (F = ab + ac + ba) can be described with the two ESPRESSO files in the Examples/ folder.
 
 
+# Each cube can be reprsented by a bit vector, which will simplify the process dramatically. In such a bit vector, 
+# a 0 can be represented by the two bits "01", a 1 can be represented by the bits "10", a dont-care (-) can be represented
+# by "11", and a void can be represented by a "00". If a "00" occurs, then the entire cube is annihilated. 
+
+# Using the above bit vector representation, the following operations can be defined: first, the intersection of two cubes
+# can be accomplished with a bitwise AND between the bits in the vectors. For example, consider the following cubes:
+#       A: 1 - 0                (ac')
+#       B: - 1 0                (bc')
+# The intersection of these two cubes would be: 
+#       C = A int B = 1 1 0     (abc')
+# If instead we used the bit vector representation, we get the following:
+#       A: 10 11 01
+#       B: 11 10 01
+#       ____________
+#       C: 10 10 01       <---- (110; abc')
+# Where we have used bitwise AND to compute C. 
