@@ -77,10 +77,10 @@ class Cube():
         """
         return (other | self.bitarr) == self.bitarr
     
-    def minterms(self) -> int:
-        """Describes the number of minterms present in a cube. For example, --0 is 4 minterms (000, 010, 100, 110)"""
-        return 2**(self.cube.count("-"))    # returns 2**n where n is the number of dashes in the cover
-    
+    def num_DC(self) -> int:
+        """Returns number of '-' in the cube"""
+        return self.cube.count("-")
+
     def size(self) -> int:
         """Returns the number of variables present in the cube"""
         return len(vars)
@@ -113,15 +113,28 @@ class Cover():
 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
-    # Special case 1 (Week 8 notes):
-    # Theorem: Let F be a cover with n variables. If the total number of minterms covered by F is less than 
-    # 2**n, then F is not a tautology. 
+
     minterms_covered = 0
-    num_variables = cover[0].size()  # number of variables in a cover is equal to the number of variables in one of it's cubes
+    dont_cares = 0                          # number of dashes (dont care's) in the cover
+    num_variables = cover[0].size()         # number of variables in a cover is equal to the number of variables in one of it's cubes
     for cube in cover:
-        minterms_covered += cube.minterms()
-    if minterms_covered < 2**num_variables:
+        dashes = cube.num_DC()
+        dont_cares += dashes
+        minterms_covered += 2**dashes       # number of minterms covered by a cube is 2**(num dashes in cube). For example, "0--" covers (000, 001, 010, 011)
+    
+    minterms_required = 2**num_variables    # used for special case 1 and 2
+
+    # Special case 1 (Week 8 notes):
+    # Theorem: Let F be a cover with n variables. If the total number of minterms covered by F is less than 2**n, then F is not a tautology. 
+    if minterms_covered < minterms_required:
         return False
+    
+    # Special case 2: 
+    # Let F be a cover with no "-"s. Then if the total number of minterms covered by F is exactly 2**(num variables), then F is a tautology.
+    if dont_cares == 0 and minterms_covered == minterms_required:
+        return True
+    
+
 
 
 
