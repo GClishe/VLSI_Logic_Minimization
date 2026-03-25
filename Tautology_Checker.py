@@ -29,3 +29,28 @@
 #       ____________
 #       C: 10 10 01       <---- (110; abc')
 # Where we have used bitwise AND to compute C. 
+
+from bitarray import bitarray
+
+class Cube():
+    def __init__(self, *vars: str) -> None:
+        self.bitarr = bitarray()
+
+        for var in vars:
+            if var not in ("1", "0", "-"):
+                raise ValueError(f"Invalid symbol. Expected \"0\", \"1\", or \"-\". Got {var}.")
+            if var == "1":
+                self.bitarr.extend([1,0])
+            elif var == "0":
+                self.bitarr.extend([0,1])
+            elif var == "-":
+                self.bitarr.extend([1,1])
+
+    def __repr__(self) -> str:
+        # if a user wants to print a cube object, then str(self.bitarr) will be printed
+        return str(self.bitarr)
+    
+
+
+x = Cube("1", "0", "-")
+print(x)
