@@ -35,7 +35,8 @@ import numpy as np
 
 class Cube():
     def __init__(self, vars: str) -> None:
-        self.bitarr = bitarray()
+        self.bitarr = bitarray()    # allows Cube object to be represented in the form "101001111110" (a bit array)
+        self.cube = vars            # allows Cube object to be represented in the form "110--1"       (same format as shown in ESPRESSO)
 
         for var in vars:
             if var not in ("1", "0", "-"):
@@ -49,7 +50,7 @@ class Cube():
 
     def __repr__(self) -> str:
         # if a user wants to print a cube object, then str(self.bitarr) will be printed
-        return str(self.bitarr)
+        return self.cube
     
     def __and__(self, other):
         """Allows bitwise AND with the & operator between Cube and Cube or Cube and bitarray. Other operand types are not and will not be supported."""
@@ -75,6 +76,14 @@ class Cube():
         returns true only if other is a subset of self.
         """
         return (other | self.bitarr) == self.bitarr
+    
+    def minterms(self) -> int:
+        """Describes the number of minterms present in a cube. For example, --0 is 4 minterms (000, 010, 100, 110)"""
+        return 2**(self.cube.count("-"))    # returns 2**n where n is the number of dashes in the cover
+    
+    def size(self) -> int:
+        """Returns the number of variables present in the cube"""
+        return len(vars)
 
 class Cover():
     def __init__(self, *cubes: Cube):
@@ -94,6 +103,27 @@ class Cover():
     def add(self, cube: Cube) -> None:
         """Adds a cube to the end of the cover list"""
         self.cover.append(cube)
+
+    def size(self):
+        """Returns the number of cubes in the cover"""
+        return len(self.cover)
+
+    def complement(self):
+        """see week 9 notes on how to implement"""
+
+def is_tautology(cover: Cover) -> bool:
+    """Checks if cover is a tautology"""
+    # Special case 1 (Week 8 notes):
+    # Theorem: Let F be a cover with n variables. If the total number of minterms covered by F is less than 
+    # 2**n, then F is not a tautology. 
+    minterms_covered = 0
+    num_variables = cover[0].size()  # number of variables in a cover is equal to the number of variables in one of it's cubes
+    for cube in cover:
+        minterms_covered += cube.minterms()
+    if minterms_covered < 2**num_variables:
+        return False
+
+
 
 test_num = 1
 file_path = f"Tautology_Check_Tests/TC_T{test_num}"
