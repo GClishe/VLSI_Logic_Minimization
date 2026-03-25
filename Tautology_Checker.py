@@ -88,8 +88,8 @@ class Cube():
 class Cover():
     def __init__(self, *cubes: Cube):
         # I considered the primary container being a numpy array. But the problem is that np arrays are contiguous in memory, so 
-        # appending elements is expensive (requires duplicating entire array). Since I expect to do many appends and deletions, 
-        # a traditional python list is attractive. 
+        # appending elements is expensive (requires duplicating entire array, see the documentation for numpy.ndarray). Since I 
+        # expect to do many appends and deletions, a traditional python list is attractive. 
         self.cover = []
         for cube in cubes:
             self.cover.append(cube)
@@ -103,6 +103,15 @@ class Cover():
     def add(self, cube: Cube) -> None:
         """Adds a cube to the end of the cover list"""
         self.cover.append(cube)
+
+    def union(self, other):
+        """Returns the union of two covers. Note that the union of two covers is not necessarily a cover, since it may contain redundant cubes."""
+        if not isinstance(other, Cover):
+            raise TypeError(f"Unsupported operand type for union: 'Cover' and {type(other)}.")
+        new_cover = Cover(*self.cover) # creates a new cover with the same cubes as self
+        for cube in other.cover:
+            new_cover.add(cube)
+        return new_cover
 
     def size(self):
         """Returns the number of cubes in the cover"""
