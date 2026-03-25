@@ -53,7 +53,10 @@ class Cube():
         return self.cube
     
     def __and__(self, other):
-        """Allows bitwise AND with the & operator between Cube and Cube or Cube and bitarray. Other operand types are not and will not be supported."""
+        """
+        Allows bitwise AND with the & operator between Cube and Cube or Cube and bitarray. Other operand types are not and will not be supported.
+        Bitwise AND between two cubes is equivalent to the intersection operation between two cubes.
+        """
         if isinstance(other, Cube):
             return self.bitarr & other.bitarr
         elif isinstance(other, bitarray):
@@ -69,6 +72,13 @@ class Cube():
             return self.bitarr | other
         else:
             raise TypeError(f"Unsupported operand type for |: 'Cube' and {type(other)}.")
+        
+    def is_null(self) -> bool:
+        """Returns true if any of the elements in self.bitarr are '00', which indicates a null cube that will be annihilated on SCC minimization."""
+        # the approach is to leverage the fact that we have bitarrays, so instead of looping I want to do bitwise operations
+
+        return ((~self.bitarr[::2]) & ( ~self.bitarr[1::2])).any() # ((grab even indices, then invert) bitwise AND (grab odd indices, then invert )) check if resulting array has any 1s. If so, then self.bitarr has at least one '00' element
+
         
     def contains(self, other) -> bool:
         """
@@ -105,13 +115,22 @@ class Cover():
         self.cover.append(cube)
 
     def union(self, other):
-        """Returns the union of two covers. Note that the union of two covers is not necessarily a cover, since it may contain redundant cubes."""
+        """Returns the union (OR) of two covers. Note that the union of two covers is not necessarily a minimal cover, since it may contain redundant cubes."""
         if not isinstance(other, Cover):
             raise TypeError(f"Unsupported operand type for union: 'Cover' and {type(other)}.")
         new_cover = Cover(*self.cover) # creates a new cover with the same cubes as self
         for cube in other.cover:
             new_cover.add(cube)
         return new_cover
+    
+    def intersection(self, other):
+        """Returns the intersection (AND) of two covers. Obtained via pairwise AND """
+        if not isinstance(other, Cover):
+            raise TypeError(f"Unsupported operand type for union: 'Cover' and {type(other)}.")
+        new_cover = Cover()
+        for cube1 in self.cover:
+            for cube2 in other:
+                new_cover.add(cube1 & cube2)
 
     def size(self):
         """Returns the number of cubes in the cover"""
