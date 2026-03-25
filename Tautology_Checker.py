@@ -31,9 +31,10 @@
 # Where we have used bitwise AND to compute C. 
 
 from bitarray import bitarray
+import numpy as np
 
 class Cube():
-    def __init__(self, *vars: str) -> None:
+    def __init__(self, vars: str) -> None:
         self.bitarr = bitarray()
 
         for var in vars:
@@ -75,19 +76,39 @@ class Cube():
         """
         return (other | self.bitarr) == self.bitarr
 
-
+class Cover():
+    def __init__(self, *cubes: Cube):
+        # I considered the primary container being a numpy array. But the problem is that np arrays are contiguous in memory, so 
+        # appending elements is expensive (requires duplicating entire array). Since I expect to do many appends and deletions, 
+        # a traditional python list is attractive. 
+        self.cover = []
+        for cube in cubes:
+            self.cover.append(cube)
+    def __repr__(self):
+        return str(self.cover)
     
-
+    def __getitem__(self, idx: int) -> Cube:
+        """Allows the Cover object to be subscriptable. In other words, cover[0] will not throw an error."""
+        return self.cover[idx]
     
+    def add(self, cube: Cube) -> None:
+        """Adds a cube to the end of the cover list"""
+        self.cover.append(cube)
+
+test_num = 1
+file_path = f"Tautology_Check_Tests/TC_T{test_num}"
+
+with open(file_path, "r") as file:
+    cover = Cover()
+    for line in file:
+        if line[0] == ".":
+            continue
+        cube_str = line.strip().split()[0] # strips leading/trailing whitespace, then splits into [inputs, output], then discards the output. Looks like "0-11-1-000-1" (or something similar)
+        cover.add(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
+
+print(*cover[:10], sep='\n')
 
 
-x = Cube("1", "0", "-")
-y = Cube("1", "0", "0")
-z = bitarray([1,0,0,1,0,1])
-w = 100101
-print(x & y)
-print(x & z)
-print(x.contains(y))
-print(y.contains(x))
-print(x.contains(z))
+
+
 
