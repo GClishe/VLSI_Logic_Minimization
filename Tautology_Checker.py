@@ -58,6 +58,22 @@ class Cube():
             return self.bitarr & other
         else:
             raise TypeError(f"Unsupported operand type for &: 'Cube' and {type(other)}.")
+        
+    def __or__(self, other):
+        """Allows bitwise OR with the | operator between Cube and Cube or Cube and bitarray. Other operand types are not and will not be supported."""
+        if isinstance(other, Cube):
+            return self.bitarr | other.bitarr
+        elif isinstance(other, bitarray):
+            return self.bitarr | other
+        else:
+            raise TypeError(f"Unsupported operand type for |: 'Cube' and {type(other)}.")
+        
+    def contains(self, other) -> bool:
+        """
+        Returns true if self contains other. For example, '-10' contains '110' and '010'. In other words,
+        returns true only if other is a subset of self.
+        """
+        return (other | self.bitarr) == self.bitarr
 
 
     
@@ -71,5 +87,7 @@ z = bitarray([1,0,0,1,0,1])
 w = 100101
 print(x & y)
 print(x & z)
-print(x & w)
+print(x.contains(y))
+print(y.contains(x))
+print(x.contains(z))
 
