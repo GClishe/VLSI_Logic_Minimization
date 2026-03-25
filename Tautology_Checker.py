@@ -114,6 +114,10 @@ class Cover():
         """Adds a cube to the end of the cover list"""
         self.cover.append(cube)
 
+    def pop(self, idx):
+        """Pops cube at idx from the cover"""
+        return self.cover.pop(idx)
+
     def union(self, other):
         """Returns the union (OR) of two covers. Note that the union of two covers is not necessarily a minimal cover, since it may contain redundant cubes."""
         if not isinstance(other, Cover):
@@ -138,6 +142,35 @@ class Cover():
 
     def complement(self):
         """see week 9 notes on how to implement"""
+
+
+
+def SCC_Minimize(cover: Cover):
+    """Performs SCC minimization on input Cover. Does not modify cover; instead, it builds a new, minimized one."""
+    new_cover = Cover()
+    rejected_cubes = set() # stores indices of cubes in cover that will not be included in the new cover
+    for cube_idx in range(cover.size()):   
+        curr_cube = cover[cube_idx]     
+
+        # Do not add null cubes
+        if curr_cube.is_null():
+            rejected_cubes.add(cube_idx)
+            continue
+        
+        # Reject cubes contained by other cubes
+        flag = 0
+        for cube2 in cover:
+            if cube2.contains(curr_cube):
+                rejected_cubes.add(cube_idx)
+                flag = 1
+                break
+        if flag == 1:
+            continue
+
+        new_cover.add(curr_cube)
+    
+    return new_cover
+    
 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
