@@ -50,7 +50,26 @@ class Cube():
         # if a user wants to print a cube object, then str(self.bitarr) will be printed
         return str(self.bitarr)
     
+    def __and__(self, other):
+        """Allows bitwise AND with the & operator between Cube and Cube or Cube and bitarray. Other operand types are not and will not be supported."""
+        if isinstance(other, Cube):
+            return self.bitarr & other.bitarr
+        elif isinstance(other, bitarray):
+            return self.bitarr & other
+        else:
+            raise TypeError(f"Unsupported operand type for &: 'Cube' and {type(other)}.")
+
+
+    
+
+    
 
 
 x = Cube("1", "0", "-")
-print(x)
+y = Cube("1", "0", "0")
+z = bitarray([1,0,0,1,0,1])
+w = 100101
+print(x & y)
+print(x & z)
+print(x & w)
+
