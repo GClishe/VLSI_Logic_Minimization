@@ -120,6 +120,8 @@ class Cover():
 
     def add(self, cube: Cube) -> None:
         """Adds a cube to the end of the cover list"""
+        if not isinstance(cube, Cube):      
+            raise TypeError(f"Expected Cube, got {type(cube)}")
         self.cover.append(cube)
 
     def pop(self, idx):
@@ -258,11 +260,11 @@ print(column_check(columns))
 
 
 cover = Cover()
-cover.add("100")
-cover.add("001")
-cover.add("-0-")
+cover.add(Cube("100"))
+cover.add(Cube("001"))
+cover.add(Cube("-0-"))
 print(cover)
-columns = cover.get_columns()       #TODO this line throws an error, pointing to the line "return zip(*(cube.cube for cube in self.cover))", specifically pointing to the cube.cube action. Says 'str' object has no attribute 'cube'. Not sure what the problem is because it did successfully grab the columns beforehand, so not sure what's up with that. But i dont have time to check right now
+columns = cover.get_columns()     
 print(list(columns))
 print(column_check(columns))
 
