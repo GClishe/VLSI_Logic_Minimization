@@ -110,6 +110,14 @@ class Cover():
         """Allows the Cover object to be subscriptable. In other words, cover[0] will not throw an error."""
         return self.cover[idx]
     
+    def __iter__(self):
+        """
+        Allows Cover objects to be iterable. Not technically necessary, since we do have the __getitem__ method, 
+        but it is more efficient to iterate through a list with an iterator than with subscripting. At least I assume
+        so, since the iterator does not have to check for index out of bounds errors.
+        """
+        return iter(self.cover)
+
     def add(self, cube: Cube) -> None:
         """Adds a cube to the end of the cover list"""
         self.cover.append(cube)
@@ -135,6 +143,15 @@ class Cover():
         for cube1 in self.cover:
             for cube2 in other:
                 new_cover.add(cube1 & cube2)
+
+    def get_columns(self):
+        """
+        Returns zip object containing corresponding entries in each column. For example, consider the following cover:
+        F = ['1-0', '0-1']. get_columns() would return a zip object that, when unizpped, would
+        return [('1','0'), ('-','-'), ('0','1')]. The get_columns() function is O(1), since zip returns an iterable. Actually
+        unzipping it/iterating through it would be O(n x m), where n is the number of rows and m is the length of each row. 
+        """
+        return zip(*(cube.cube for cube in self.cover))
 
     def size(self):
         """Returns the number of cubes in the cover"""
@@ -170,6 +187,25 @@ def SCC_Minimize(cover: Cover):
         new_cover.add(curr_cube)
     
     return new_cover
+
+def column_check(columns_zip):
+    """
+    Returns True if the columns_zip (expected to be a zip object from the Cover.get_columns() method) object
+    has any columns with all 0s or all 1s. If a column contains '-', then it does not qualify.
+    """
+    for column in columns_zip:
+        column_iterable = iter(column)  # converts column into an iterable
+        first = next(column_iterable)   # assigns first to the very first value in the iterable
+        if first == '-': 
+            continue
+
+        # below I am using a for...else statement, which is pretty rare. Basically, if the for loop encounters the break satement, then the else statement will not execute. If instead the for loop completes without hitting the break statement, then the else statement will execute.
+        for x in column_iterable: # loops through the rest of the elements, stopping early and returning False if x == first is ever violated
+            if x != first:
+                break
+        else: # if the loop completes without hitting a break statement, then all elements in the column are the same (and not '-'), so we return True
+            return True
+    return False
     
 
 def is_tautology(cover: Cover) -> bool:
@@ -180,6 +216,8 @@ def is_tautology(cover: Cover) -> bool:
     num_variables = cover[0].size()         # number of variables in a cover is equal to the number of variables in one of it's cubes
     for cube in cover:
         dashes = cube.num_DC()
+        if dashes == num_variables:         # if a cube has all dashes, then it covers all minterms, so the cover is a tautology
+            return True        
         dont_cares += dashes
         minterms_covered += 2**dashes       # number of minterms covered by a cube is 2**(num dashes in cube). For example, "0--" covers (000, 001, 010, 011)
     
@@ -194,23 +232,39 @@ def is_tautology(cover: Cover) -> bool:
     # Let F be a cover with no "-"s. Then if the total number of minterms covered by F is exactly 2**(num variables), then F is a tautology.
     if dont_cares == 0 and minterms_covered == minterms_required:
         return True
-    
 
+    # Special case 3: If there is a column with all 1s or all 0s, then the cover is not a tautology.
+    if column_check(cover.get_columns()):
+        return False
 
 
 
 test_num = 1
-file_path = f"Tautology_Check_Tests/TC_T{test_num}"
+#file_path = f"Tautology_Check_Tests/TC_T{test_num}"
+file_path = f"Examples/majority-1"
 
 with open(file_path, "r") as file:
     cover = Cover()
     for line in file:
-        if line[0] == ".":
+        if line[0] == "." or line[0] == "#":
             continue
         cube_str = line.strip().split()[0] # strips leading/trailing whitespace, then splits into [inputs, output], then discards the output. Looks like "0-11-1-000-1" (or something similar)
         cover.add(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
 
-print(*cover[:10], sep='\n')
+print(cover)
+columns = cover.get_columns()
+print(list(columns))
+print(column_check(columns))
+
+
+cover = Cover()
+cover.add("100")
+cover.add("001")
+cover.add("-0-")
+print(cover)
+columns = cover.get_columns()       #TODO this line throws an error, pointing to the line "return zip(*(cube.cube for cube in self.cover))", specifically pointing to the cube.cube action. Says 'str' object has no attribute 'cube'. Not sure what the problem is because it did successfully grab the columns beforehand, so not sure what's up with that. But i dont have time to check right now
+print(list(columns))
+print(column_check(columns))
 
 
 
