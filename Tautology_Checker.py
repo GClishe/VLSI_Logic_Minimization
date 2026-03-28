@@ -32,6 +32,7 @@
 
 from bitarray import bitarray
 import numpy as np
+from itertools import chain     # yields elements from multiple iterables sequentially without having to copy or materialize them in any way. This is specificaly helpful in column_check()
 
 class Cube():
     def __init__(self, vars: str) -> None:
@@ -93,7 +94,7 @@ class Cube():
 
     def size(self) -> int:
         """Returns the number of variables present in the cube"""
-        return len(vars)
+        return len(self.cube)
 
 class Cover():
     def __init__(self, *cubes: Cube):
@@ -195,7 +196,38 @@ def column_check(columns_zip):
     Returns True if the columns_zip (expected to be a zip object from the Cover.get_columns() method) object
     has any columns with all 0s or all 1s. If a column contains '-', then it does not qualify.
     """
-    for column in columns_zip:
+    
+    # First, we add a check to make sure that columns_zip is not empty, since if it was empty, it would result in a False return which might 
+    # mislead you into thinking there are no pure 1/0 columns in the cover when there actually are. This would occur if you accidentally
+    # unpack the columns_zip object *before* passing it into this function. This did happen to me and the bug took a while to track down,
+    # Hence the additional check.
+
+    # As an example to illustrate that bug, consider this code:
+    # cover = Cover()
+    # cover.add(Cube("100"))
+    # cover.add(Cube("001"))
+    # cover.add(Cube("-0-"))
+    # print(cover)
+    # columns = cover.get_columns()     
+    # print(list(columns))
+    # print(column_check(columns))
+
+    # We expect that code to print first the cover, then the columns, then True, since the second column is all 0s. However, this code actually returns False at the end.
+    # The problem is because when we print(list(columns)), the list(columns) would exhaust the iterator, so that when we do column_check(columns), we are passing an 
+    # *empty* iterator to column_check, which would skip the for loop and immediately return False. That is why it is necessary to raise an error if an empty columns_zip
+    # is passed to this function. 
+    
+    
+    it = iter(columns_zip)
+
+    try:
+        first_column = next(it)
+    except StopIteration:
+        raise ValueError("columns_zip is empty. Did you exhaust the columns_zip iterator already?")
+
+    # chain(iterable, iterator) allows us to loop through the iterable first normally (in this case, a 1 element tuple containing first_column), and then through an iterator without unpacking it. Without chain, we'd
+    # have to loop through something like this tuple: (first_column, *columns_zip), which would be bad because it would first unpack the entire columns_zip iterator before starting the loop, which is inefficient.
+    for column in chain((first_column,),columns_zip):
         column_iterable = iter(column)  # converts column into an iterable
         first = next(column_iterable)   # assigns first to the very first value in the iterable
         if first == '-': 
@@ -256,7 +288,7 @@ with open(file_path, "r") as file:
 print(cover)
 columns = cover.get_columns()
 print(list(columns))
-print(column_check(columns))
+print(column_check(cover.get_columns()))
 
 
 cover = Cover()
@@ -266,7 +298,7 @@ cover.add(Cube("-0-"))
 print(cover)
 columns = cover.get_columns()     
 print(list(columns))
-print(column_check(columns))
+print(column_check(cover.get_columns()))
 
 
 
