@@ -240,7 +240,35 @@ def column_check(columns_zip):
         else: # if the loop completes without hitting a break statement, then all elements in the column are the same (and not '-'), so we return True
             return True
     return False
-    
+
+def unate_reduction(cover: Cover):
+    """
+    Suppose you have a cover that can be rearranged as:
+    F = [[U, F1], [D, F2]], where U are unate columns and D is a matrix of '-'s. Then, F is a tautology iff 
+    F2 is a tautology.
+
+    For example, consider the cover 
+    F = [
+            [1,0,1,0],
+            [1,0,0,-],
+            [-,0,1,0],
+            [-,-,1,1],
+            [-,-,-,1]
+        ]
+    is in the correct form, where U = [[1,0],[1,0],[-,0]] (positive unate on the first column, negative unate on second column) and 
+    D = [[-,-],[-,-]]. Then, F is a tautology if and only if [[1,1][-,1]] is a tautology.
+    """
+    # Here's what I'm thinking so far.... The matrix D can only be constructed from unate columns (positive or negative or a combination of both). So first, 
+    # this algorithm should probably identify all of the unate columns in F.
+    # Then, identify which rows have a '-' on those columns. If there exists a unate column, then it is guaranteed that it has at least one dash. This is because
+    # the existence of a unate column without dashes would have caused Special Case 3 (called before unate_reduction) to return False. Anyways, we want to identify
+    # the rows that have the dashes (for each column). Then, we want to identify the largest grouping of same-rows. For example, supopse columns 3, 7, and 9 are unate. 
+    # And suppose that we build a map that maps column number to rows-with-dashes: {3: [1,3,5], 7: [1,3,7], 8: [1,2,9]}. From this map, we can construct a matrix D from 
+    # columns 3 and 7 and rows 1 and 3. Then from this, we can construct a matrix F2 with columns (all columns other than 3 and 7) and rows (1 and 3). Alternatively, we could
+    # also construct a matrix D from columns 3, 7, and 9 and row 1. Then, the matrix F2 would consist of all columns other than 3, 7, and 9 and row 1. This version of F2 would 
+    # be faster to check for tautology than the previous version, so unate reducton would return the second version of F2. I would need to find some metric by which we could 
+    # measure the ease of a tautology check. For example, is a 2x3 cover easier to check for tautology than a 3x2 cover? I dont know. Maybe they are the same and the metric is
+    # less literals (2x3 = 6 literals) --> easier tautology checking. But I do not know this for a fact. 
 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
@@ -270,6 +298,17 @@ def is_tautology(cover: Cover) -> bool:
     # Special case 3: If there is a column with all 1s or all 0s, then the cover is not a tautology.
     if column_check(cover.get_columns()):
         return False
+    
+    #Let F = cover
+
+    # unate_reduction(F)
+    
+    # now select the most binate variable (j)
+
+    #if tautology (F_j) == false: then return False
+    #if tautology (F_j') == false: then return False
+
+    # return True
 
 
 
