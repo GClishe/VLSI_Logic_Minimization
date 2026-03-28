@@ -259,17 +259,11 @@ def unate_reduction(cover: Cover):
     D = [[-,-],[-,-]]. Then, F is a tautology if and only if [[1,1][-,1]] is a tautology.
     """
     # Here's what I'm thinking so far.... The matrix D can only be constructed from unate columns (positive or negative or a combination of both). So first, 
-    # this algorithm should probably identify all of the unate columns in F.
-    # Then, identify which rows have a '-' on those columns. If there exists a unate column, then it is guaranteed that it has at least one dash. This is because
-    # the existence of a unate column without dashes would have caused Special Case 3 (called before unate_reduction) to return False. Anyways, we want to identify
-    # the rows that have the dashes (for each column). Then, we want to identify the largest grouping of same-rows. For example, supopse columns 3, 7, and 9 are unate. 
-    # And suppose that we build a map that maps column number to rows-with-dashes: {3: [1,3,5], 7: [1,3,7], 8: [1,2,9]}. From this map, we can construct a matrix D from 
-    # columns 3 and 7 and rows 1 and 3. Then from this, we can construct a matrix F2 with columns (all columns other than 3 and 7) and rows (1 and 3). Alternatively, we could
-    # also construct a matrix D from columns 3, 7, and 9 and row 1. Then, the matrix F2 would consist of all columns other than 3, 7, and 9 and row 1. This version of F2 would 
-    # be faster to check for tautology than the previous version, so unate reducton would return the second version of F2. I would need to find some metric by which we could 
-    # measure the ease of a tautology check. For example, is a 2x3 cover easier to check for tautology than a 3x2 cover? I dont know. Maybe they are the same and the metric is
-    # less literals (2x3 = 6 literals) --> easier tautology checking. But I do not know this for a fact. 
-
+    # this algorithm should probably identify all of the unate columns in F and group them together. These columns will be used to determine the matrices U and D.
+    # Next, we have to figure out which rows in those columns are all 0s. We build the maximal set of such rows to construct the matrix D. In other words, D contains
+    # all of the unate columns and is also all dashes. If there are no rows of all dashes within the unate columns, we cannot construct a matrix D and unate reduction
+    # fails. In other words, D is the matrix whose entries are '-' in ALL unate columns of F. Having rows that are all-dash on some proper subset of unate columns is
+    # insufficient to build D. There must be simultaneous dashes across the entire set of unate columns in order for unate reduction to occur. 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
 
