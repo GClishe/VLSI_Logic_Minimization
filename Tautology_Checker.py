@@ -270,7 +270,7 @@ def column_check(columns_zip):
             return True
     return False
 
-def unate_reduction(cover: Cover):
+def unate_reduction(cover: Cover) -> Cover:
     """
     Suppose you have a cover that can be rearranged as:
     F = [[U, F1], [D, F2]], where U are unate columns and D is a matrix of '-'s. Then, F is a tautology iff 
@@ -358,7 +358,7 @@ def is_tautology(cover: Cover) -> bool:
     
     #Let F = cover
 
-    # unate_reduction(F)
+    cover = unate_reduction(cover)
     
     # now select the most binate variable (j)
 
