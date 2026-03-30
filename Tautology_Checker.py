@@ -172,7 +172,7 @@ class Cover():
                 if first != '-':
                     break
             else:   # this line only executes if the for loop terminates without breaking
-                print(f"Column {idx} is all dont-care's. Adding to list of unate columns")
+                #print(f"Column {idx} is all dont-care's. Adding to list of unate columns")
                 unate_cols.append(idx)
                 continue
             
@@ -295,6 +295,7 @@ def unate_reduction(cover: Cover):
     # insufficient to build D. There must be simultaneous dashes across the entire set of unate columns in order for unate reduction to occur. 
 
     unate_columns = cover.unate_columns()       # grabbing the indices of all of the unate columns (positive or negative unate, includes columns containing all dashes, if they exist).
+    unate_columns_set = set(unate_columns)      # also obtaining a set version for fast lookups
 
     # now we need to figure out which rows have all dashes in those unate columns
     d_rows = []         # the rows in matrix D are the rows that have all dashes in the unate_columns
@@ -305,7 +306,25 @@ def unate_reduction(cover: Cover):
         else:
             d_rows.append(row_num)
 
-    return d_rows
+    print(f"Rows in F2 are {d_rows}")
+    print(f"Columns not included in F2 are {unate_columns}")
+
+    if len(d_rows) == 0:
+        return cover        # if unate reduction is impossible, return the original cover
+    
+    # Now we need to construct the matrix F2. This will consist of the rows in d_rows and the columns NOT IN unate_columns
+    F2 = Cover()
+    for row_num in d_rows:
+        cube_of_interest = cover[row_num]    # a subset of this cube will be added to the new cover
+        new_cube = ""                       # initializing new cube to be constructed from cube_of_interest
+        for idx, val in enumerate(cube_of_interest):
+            if idx in unate_columns_set:
+                continue
+            new_cube += val                 # we add val to new_cube as long as we are not looking in a forbidden column
+            #print(f"Adding {val} from column {idx} to new_cube, since column {idx} is not a unate column")
+        F2.add(Cube(new_cube))
+
+    return F2
 
 
 def is_tautology(cover: Cover) -> bool:
@@ -372,6 +391,5 @@ cover.add(Cube("1--1-0-"))
 
 print(cover)
 print(unate_reduction(cover))
-print(cover.unate_columns())
 
 
