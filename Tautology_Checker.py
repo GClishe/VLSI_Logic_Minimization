@@ -155,6 +155,30 @@ class Cover():
         unzipping it/iterating through it would be O(n x m), where n is the number of rows and m is the length of each row. 
         """
         return zip(*(cube.cube for cube in self.cover))
+    
+    def unate_columns(self): 
+        """Returns a list of all unate columns (positive or negative) in the cover. """
+        columns = self.get_columns()
+        unate_cols = []
+
+        for idx, column in enumerate(columns):
+            column_it = iter(column)   # converts the column into an iterable
+           
+            for first in column_it:    # iterate through column_it until we find a non-dont-care. That value will be assigned to `first`
+                if first != '-':
+                    break
+            else:   # this line only executes if the for loop terminates without breaking
+                print(f"Column {idx} is all dont-care's. Adding to list of unate columns")
+                unate_cols.append(idx)
+            
+            # loop thru the remaining values in the column (note that since column_it is an iterable, this loop will not evaluate the values we've already looked at)
+            for value in column_it:
+                if value != first and value != '-':
+                    break
+            else:
+                unate_cols.append(idx)
+
+        return unate_cols
 
     def size(self):
         """Returns the number of cubes in the cover"""
