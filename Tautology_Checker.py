@@ -53,6 +53,10 @@ class Cube():
         # if a user wants to print a cube object, then str(self.bitarr) will be printed
         return self.cube
     
+    def __getitem__(self, idx):
+        """Allows cube to be subscriptable. Returns either '1', '0', or '-'."""
+        return self.cube[idx]
+    
     def __and__(self, other):
         """
         Allows bitwise AND with the & operator between Cube and Cube or Cube and bitarray. Other operand types are not and will not be supported.
@@ -289,6 +293,21 @@ def unate_reduction(cover: Cover):
     # all of the unate columns and is also all dashes. If there are no rows of all dashes within the unate columns, we cannot construct a matrix D and unate reduction
     # fails. In other words, D is the matrix whose entries are '-' in ALL unate columns of F. Having rows that are all-dash on some proper subset of unate columns is
     # insufficient to build D. There must be simultaneous dashes across the entire set of unate columns in order for unate reduction to occur. 
+
+    unate_columns = cover.unate_columns()       # grabbing the indices of all of the unate columns (positive or negative unate, includes columns containing all dashes, if they exist).
+
+    # now we need to figure out which rows have all dashes in those unate columns
+    d_rows = []         # the rows in matrix D are the rows that have all dashes in the unate_columns
+    for row_num, cube in enumerate(cover):
+        for i in unate_columns:
+            if cube[i] != '-':
+                break
+        else:
+            d_rows.append(row_num)
+
+    return d_rows
+
+
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
 
@@ -352,7 +371,7 @@ cover.add(Cube("---0-1-"))
 cover.add(Cube("1--1-0-"))
 
 print(cover)
+print(unate_reduction(cover))
 print(cover.unate_columns())
-
 
 
