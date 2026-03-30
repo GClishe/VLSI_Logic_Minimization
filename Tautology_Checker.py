@@ -170,6 +170,7 @@ class Cover():
             else:   # this line only executes if the for loop terminates without breaking
                 print(f"Column {idx} is all dont-care's. Adding to list of unate columns")
                 unate_cols.append(idx)
+                continue
             
             # loop thru the remaining values in the column (note that since column_it is an iterable, this loop will not evaluate the values we've already looked at)
             for value in column_it:
@@ -342,22 +343,16 @@ with open(file_path, "r") as file:
         cube_str = line.strip().split()[0] # strips leading/trailing whitespace, then splits into [inputs, output], then discards the output. Looks like "0-11-1-000-1" (or something similar)
         cover.add(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
 
-print(cover)
-columns = cover.get_columns()
-print(list(columns))
-print(column_check(cover.get_columns()))
-
-
 cover = Cover()
-cover.add(Cube("100"))
-cover.add(Cube("001"))
-cover.add(Cube("-0-"))
+cover.add(Cube("10-0-1-"))
+cover.add(Cube("10-1-1-"))
+cover.add(Cube("1--0-0-"))
+cover.add(Cube("1--1-1-"))
+cover.add(Cube("---0-1-"))
+cover.add(Cube("1--1-0-"))
+
 print(cover)
-columns = cover.get_columns()     
-print(list(columns))
-print(column_check(cover.get_columns()))
-
-
+print(cover.unate_columns())
 
 
 
