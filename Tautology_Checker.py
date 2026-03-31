@@ -85,6 +85,11 @@ class Cube():
 
         return ((~self.bitarr[::2]) & ( ~self.bitarr[1::2])).any() # ((grab even indices, then invert) bitwise AND (grab odd indices, then invert )) check if resulting array has any 1s. If so, then self.bitarr has at least one '00' element
 
+    def pop(self, idx):
+        """Removes the character at idx from self.cube and returns the value that was stored there"""
+        val = self.cube[idx]
+        self.cube = self.cube[:idx] + self.cube[idx+1:] # constructs new cube by skipping the character at idx (strings are immutable, so we have to construct a new one and assign it back to self.cube)
+        return val
         
     def contains(self, other) -> bool:
         """
@@ -368,7 +373,33 @@ def most_binate_variable(cover: Cover):
 
     return most_binate_column
 
+def cofactors(cover: Cover, variable: int) -> tuple[Cover, Cover]:
+    """
+    Returns a tuple of the positive and negative cofactors of cover with respect to variable.
+    Positive cofactor is index 0 in return tuple, negative cofactor is index 1 in return tuple. 
+    """
+    # this line indexes a zip object, which is unfortunatley not O(1). However, creating the zip object is O(1), so indexing it is O(variable].
+    # If instead I had a get_single_column(variable) method, it would be O(n) to get the column and O(1) to index it (where n is number of rows in the cover).
+    # So indexing the zip object is still faster (unless variable is the very last column, in which case they are equally slow). 
+    column = cover.get_columns()[variable]      
+    pos_cofactor = Cover()
+    neg_cofactor = Cover()
 
+
+    for idx, val in enumerate(column):
+        cube_of_interest = Cube(cover[idx].cube)  # we have to construct a new cube object in order to use the cube_remove() method, which is necessary to remove the variable column from the cofactor cubes. This is O(n) where n is the number of variables in the cover, since we have to copy the entire cube string in order to build the new cube.
+        val = cube_of_interest.pop(variable)   # removes the variable column from the cube of interest and returns the value that was stored there (either '1', '0', or '-')
+
+        #the pop method modified cube_of_interest by removing the variable column, so we can add it to the appropriate cofactor without worrying about removing the variable column later.
+        if val == '1':
+            pos_cofactor.add(cube_of_interest)
+        elif val == '0':
+            neg_cofactor.add(cube_of_interest)
+        elif val == '-':
+            pos_cofactor.add(cube_of_interest)
+            neg_cofactor.add(cube_of_interest)
+            
+    return pos_cofactor, neg_cofactor
 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
@@ -399,17 +430,24 @@ def is_tautology(cover: Cover) -> bool:
     if column_check(cover.get_columns()):
         return False
     
-    #Let F = cover
+    # now do unate reduction
     try:
         cover = unate_reduction(cover)
     except NotTautology:
         return False
+    
     # now select the most binate variable (j)
+    j = most_binate_variable(cover)
 
-    #if tautology (F_j) == false: then return False
-    #if tautology (F_j') == false: then return False
+    F_j, F_j_prime = cofactors(cover, j)
 
-    # return True
+    # and look at the cofactors with respect to j
+    if is_tautology(F_j) == False:
+        return False
+    if is_tautology(F_j_prime) == False:
+        return False
+
+    return True
 
 
 
