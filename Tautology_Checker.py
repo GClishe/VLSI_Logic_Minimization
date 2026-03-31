@@ -270,6 +270,13 @@ def column_check(columns_zip):
             return True
     return False
 
+
+class NotTautology(Exception):
+    """
+    Creating a new exception that will be raised in unate_reduction() in the event that the corollary to general unate
+    reduction results in no tautology.
+    """
+    pass
 def unate_reduction(cover: Cover) -> Cover:
     """
     Suppose you have a cover that can be rearranged as:
@@ -306,6 +313,10 @@ def unate_reduction(cover: Cover) -> Cover:
         else:
             d_rows.append(row_num)
 
+    if len(unate_columns) != 0 and len(d_rows) == 0:
+        # if this is true, then by the corlollary to general unate reduction, F is not a tautology 
+        raise NotTautology("No all-dash rows in unate columns means that the cover is not a tautology.")
+    
     print(f"Rows in F2 are {d_rows}")
     print(f"Columns not included in F2 are {unate_columns}")
 
@@ -326,6 +337,9 @@ def unate_reduction(cover: Cover) -> Cover:
 
     return F2
 
+def most_binate_variable(cover: Cover):
+    """Returns the index of the most binate variable in the cover."""
+    columns
 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
@@ -357,9 +371,10 @@ def is_tautology(cover: Cover) -> bool:
         return False
     
     #Let F = cover
-
-    cover = unate_reduction(cover)
-    
+    try:
+        cover = unate_reduction(cover)
+    except NotTautology:
+        return False
     # now select the most binate variable (j)
 
     #if tautology (F_j) == false: then return False
