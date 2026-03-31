@@ -33,6 +33,7 @@
 from bitarray import bitarray
 import numpy as np
 from itertools import chain     # yields elements from multiple iterables sequentially without having to copy or materialize them in any way. This is specificaly helpful in column_check()
+import math
 
 class Cube():
     def __init__(self, vars: str) -> None:
@@ -339,7 +340,35 @@ def unate_reduction(cover: Cover) -> Cover:
 
 def most_binate_variable(cover: Cover):
     """Returns the index of the most binate variable in the cover."""
-    columns
+    # Binateness will be checked as follows. Let "dc" be the number of dashes in the column.
+    # Then, as we iterate through the column, if we see a '1', increment the counter. If we see
+    # a '0', decrement the counter. Call this counter "C". The metric for binateness will seek
+    # to minimize the quantity abs(c) + dc. Thus, equal numbers of '1's and '0's is rewarded, 
+    # and dashes are penalized. 
+    columns = cover.get_columns()
+    most_binate_column = None
+    best_column_score = math.inf
+    for column_idx, column in enumerate(columns):
+        dc = 0
+        ctr = 0
+        for val in column:
+            if val == '-':
+                dc += 1
+                if dc >= best_column_score:  # there might be a better way to prune this earlier that takes into account the number of values left in the column, but i will go with this for now
+                    break  # if the number of dashes exceeds the best known column, then we already know that this column is no longer a candidate, so we stop looping
+            elif val == '1':
+                ctr += 1
+            elif val == '0':
+                ctr -= 1
+        else:
+            # another for...else block. This code will only run if we looped thru the entire column without breaking
+            if (column_score := abs(ctr) + dc) < best_column_score:
+                best_column_score = column_score
+                most_binate_column = column_idx
+
+    return most_binate_column
+
+
 
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
@@ -406,5 +435,6 @@ cover.add(Cube("1--1-0-"))
 
 print(cover)
 print(unate_reduction(cover))
+print(most_binate_variable(cover))
 
 
