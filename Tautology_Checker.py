@@ -52,6 +52,24 @@ class Cube():
             elif var == "-":
                 self.bitarr.extend([1,1])
 
+    @classmethod
+    def _from_representations(cls, cube_str: str, cube_bits: bitarray):
+        """Creates a Cube directly from already-synchronized string and bitarray representations."""
+        # This method allows us to avoid recomputing bitarr from the string when we already have both representations consistent with each other. 
+        # Making it a classmethod allows us to bypass the init constructor entirely, basically saying "These two representations already match, so
+        # just wrap them into a cube." Basically, this method allows us to reconstruct cube objects more quickly when we modify them.
+        if not isinstance(cube_bits, bitarray):
+            raise TypeError(f"Expected bitarray, got {type(cube_bits)}")
+        if len(cube_bits) != 2 * len(cube_str):
+            raise ValueError("cube_bits length must be exactly 2x cube_str length.")
+
+        obj = cls.__new__(cls)          # creates instance without calling __init__
+
+        # now assigning both representations directly
+        obj.cube = cube_str             
+        obj.bitarr = cube_bits.copy()   
+        return obj
+
     def __repr__(self) -> str:
         # if a user wants to print a cube object, then str(self.bitarr) will be printed
         return self.cube
@@ -88,10 +106,27 @@ class Cube():
         return ((~self.bitarr[::2]) & ( ~self.bitarr[1::2])).any() # ((grab even indices, then invert) bitwise AND (grab odd indices, then invert )) check if resulting array has any 1s. If so, then self.bitarr has at least one '00' element
 
     def pop(self, idx):
-        """Removes the character at idx from self.cube and returns the value that was stored there"""
+        """Removes variable idx from both representations and returns the removed value."""
+        if idx < 0 or idx >= len(self.cube):
+            raise IndexError(f"Index {idx} out of range for cube of size {len(self.cube)}")
+
         val = self.cube[idx]
-        self.cube = self.cube[:idx] + self.cube[idx+1:] # constructs new cube by skipping the character at idx (strings are immutable, so we have to construct a new one and assign it back to self.cube)
+        self.cube = self.cube[:idx] + self.cube[idx+1:]
+        del self.bitarr[2 * idx : 2 * idx + 2]
         return val
+
+    def reduced_on_variable(self, idx):
+        """Returns (value_at_idx, new_cube_without_idx) without modifying self."""
+        if idx < 0 or idx >= len(self.cube):
+            raise IndexError(f"Index {idx} out of range for cube of size {len(self.cube)}")
+
+        val = self.cube[idx]
+        reduced_cube_str = self.cube[:idx] + self.cube[idx+1:]
+        reduced_bits = self.bitarr[:2 * idx] + self.bitarr[2 * idx + 2:]    
+
+
+        # instantiating cube in this way (below) bypasses the (relatively) expensive __init__ constructor and instead assigning the cube.cube and cube.bitarr to the values we justcreated (again, without calling the init constructor)
+        return val, Cube._from_representations(reduced_cube_str, reduced_bits)     
         
     def contains(self, other) -> bool:
         """
@@ -385,16 +420,15 @@ def cofactors(cover: Cover, variable: int) -> tuple[Cover, Cover]:
     neg_cofactor = Cover()
 
     for cube in cover:
-        cube_of_interest = Cube(cube.cube)      # copying cube.cube so that we can modify cube_of_interest without affecting cover
-        val = cube_of_interest.pop(variable)    # getting the value at variable and removing that variable from cube_of_interest 
+        val, reduced_cube = cube.reduced_on_variable(variable)
 
         if val == '1':
-            pos_cofactor.add(cube_of_interest)
+            pos_cofactor.add(reduced_cube)
         elif val == '0':
-            neg_cofactor.add(cube_of_interest)
+            neg_cofactor.add(reduced_cube)
         elif val == '-':
-            pos_cofactor.add(cube_of_interest)
-            neg_cofactor.add(cube_of_interest)
+            pos_cofactor.add(reduced_cube)
+            neg_cofactor.add(reduced_cube)
 
     return pos_cofactor, neg_cofactor
 
