@@ -37,6 +37,7 @@ import math
 import time
 from dataclasses import dataclass    
 
+
 class Cube():
     def __init__(self, vars: str) -> None:
         self.bitarr = bitarray()    # allows Cube object to be represented in the form "101001111110" (a bit array)
@@ -51,24 +52,6 @@ class Cube():
                 self.bitarr.extend([0,1])
             elif var == "-":
                 self.bitarr.extend([1,1])
-
-    @classmethod    # class methods are called on the class itself, rather than on an instance of the class. This is useful for factory methods that create instances of the class in a specific way, which is exactly what this method is doing. By using @classmethod, we can call Cube._from_representations(cube_str, cube_bits) without needing to first create an instance of Cube, which is necessary since we want to bypass the __init__ constructor entirely in some cases.
-    def _from_representations(cls, cube_str: str, cube_bits: bitarray):
-        """Creates a Cube directly from already-synchronized string and bitarray representations."""
-        # This method allows us to avoid recomputing bitarr from the string when we already have both representations consistent with each other. 
-        # Making it a classmethod allows us to bypass the init constructor entirely, basically saying "These two representations already match, so
-        # just wrap them into a cube." Basically, this method allows us to reconstruct cube objects more quickly when we modify them.
-        if not isinstance(cube_bits, bitarray):
-            raise TypeError(f"Expected bitarray, got {type(cube_bits)}")
-        if len(cube_bits) != 2 * len(cube_str):
-            raise ValueError("cube_bits length must be exactly 2x cube_str length.")
-
-        obj = cls.__new__(cls)          # creates instance without calling __init__
-
-        # now assigning both representations directly
-        obj.cube = cube_str             
-        obj.bitarr = cube_bits.copy()   
-        return obj
 
     def __repr__(self) -> str:
         # if a user wants to print a cube object, then str(self.bitarr) will be printed
@@ -114,19 +97,6 @@ class Cube():
         self.cube = self.cube[:idx] + self.cube[idx+1:]
         del self.bitarr[2 * idx : 2 * idx + 2]
         return val
-
-    def reduced_on_variable(self, idx):
-        """Returns (value_at_idx, new_cube_without_idx) without modifying self."""
-        if idx < 0 or idx >= len(self.cube):
-            raise IndexError(f"Index {idx} out of range for cube of size {len(self.cube)}")
-
-        val = self.cube[idx]
-        reduced_cube_str = self.cube[:idx] + self.cube[idx+1:]
-        reduced_bits = self.bitarr[:2 * idx] + self.bitarr[2 * idx + 2:]    
-
-
-        # instantiating cube in this way (below) bypasses the (relatively) expensive __init__ constructor and instead assigning the cube.cube and cube.bitarr to the values we justcreated (again, without calling the init constructor)
-        return val, Cube._from_representations(reduced_cube_str, reduced_bits)     
         
     def contains(self, other) -> bool:
         """
@@ -261,8 +231,8 @@ def unate_reduction_view(master_cover: list[Cube], view: CoverView) -> CoverView
         raise NotTautology("No rows are '-' in all unate columns, so the cover is not a tautology.")
     
     new_cols = tuple(col_idx for local_idx, col_idx in enumerate(view.cols) if local_idx not in unate_local_set) # the new view will have the same columns as the old view, except with the unate columns removed
+    
     return CoverView(rows=tuple(d_rows), cols=new_cols)
-
 
 def most_binate_variable_view(master_cover: list[Cube], view: CoverView):
     """Returns the local index of the most binate variable in the view. Local index means the index of the variable in the current view, as opposed to the master cover."""
@@ -289,11 +259,11 @@ def most_binate_variable_view(master_cover: list[Cube], view: CoverView):
                 ctr += 1
             elif val == '0':
                 ctr -= 1
-
-        score = abs(ctr) + dc
-        if score < best_score:
-            best_score = score
-            best_local_idx = local_idx
+        else:   # executed only if we did not break out of the loop due to too many dont cares. If we did break out of the loop, then we skip the score calculation and move on to the next column.
+            score = abs(ctr) + dc
+            if score < best_score:
+                best_score = score
+                best_local_idx = local_idx
 
     return best_local_idx
 
