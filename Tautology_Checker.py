@@ -143,105 +143,11 @@ class Cube():
         """Returns the number of variables present in the cube"""
         return len(self.cube)
 
-class Cover():
-    def __init__(self, *cubes: Cube):
-        # I considered the primary container being a numpy array. But the problem is that np arrays are contiguous in memory, so 
-        # appending elements is expensive (requires duplicating entire array, see the documentation for numpy.ndarray). Since I 
-        # expect to do many appends and deletions, a traditional python list is attractive. 
-        self.cover = []
-        for cube in cubes:
-            self.cover.append(cube)
-    def __repr__(self):
-        return str(self.cover)
-    
-    def __getitem__(self, idx: int) -> Cube:
-        """Allows the Cover object to be subscriptable. In other words, cover[0] will not throw an error."""
-        return self.cover[idx]
-    
-    def __iter__(self):
-        """
-        Allows Cover objects to be iterable. Not technically necessary, since we do have the __getitem__ method, 
-        but it is more efficient to iterate through a list with an iterator than with subscripting. At least I assume
-        so, since the iterator does not have to check for index out of bounds errors.
-        """
-        return iter(self.cover)
-
-    def add(self, cube: Cube) -> None:
-        """Adds a cube to the end of the cover list"""
-        if not isinstance(cube, Cube):      
-            raise TypeError(f"Expected Cube, got {type(cube)}")
-        self.cover.append(cube)
-
-    def pop(self, idx):
-        """Pops cube at idx from the cover"""
-        return self.cover.pop(idx)
-
-    def union(self, other):
-        """Returns the union (OR) of two covers. Note that the union of two covers is not necessarily a minimal cover, since it may contain redundant cubes."""
-        if not isinstance(other, Cover):
-            raise TypeError(f"Unsupported operand type for union: 'Cover' and {type(other)}.")
-        new_cover = Cover(*self.cover) # creates a new cover with the same cubes as self
-        for cube in other.cover:
-            new_cover.add(cube)
-        return new_cover
-    
-    def intersection(self, other):
-        """Returns the intersection (AND) of two covers. Obtained via pairwise AND """
-        if not isinstance(other, Cover):
-            raise TypeError(f"Unsupported operand type for union: 'Cover' and {type(other)}.")
-        new_cover = Cover()
-        for cube1 in self.cover:
-            for cube2 in other:
-                new_cover.add(cube1 & cube2)
-
-    def get_columns(self):
-        """
-        Returns zip object containing corresponding entries in each column. For example, consider the following cover:
-        F = ['1-0', '0-1']. get_columns() would return a zip object that, when unizpped, would
-        return [('1','0'), ('-','-'), ('0','1')]. The get_columns() function is O(1), since zip returns an iterable. Actually
-        unzipping it/iterating through it would be O(n x m), where n is the number of rows and m is the length of each row. 
-        """
-        return zip(*(cube.cube for cube in self.cover))
-    
-    def unate_columns(self): 
-        """Returns a list of all unate columns (positive or negative) in the cover. """
-        columns = self.get_columns()
-        unate_cols = []
-
-        for idx, column in enumerate(columns):
-            column_it = iter(column)   # converts the column into an iterable
-           
-            for first in column_it:    # iterate through column_it until we find a non-dont-care. That value will be assigned to `first`
-                if first != '-':
-                    break
-            else:   # this line only executes if the for loop terminates without breaking
-                #print(f"Column {idx} is all dont-care's. Adding to list of unate columns")
-                unate_cols.append(idx)
-                continue
-            
-            # loop thru the remaining values in the column (note that since column_it is an iterable, this loop will not evaluate the values we've already looked at)
-            for value in column_it:
-                if value != first and value != '-':
-                    break
-            else:
-                unate_cols.append(idx)
-
-        return unate_cols
-
-    def size(self):
-        """Returns the number of cubes in the cover"""
-        return len(self.cover)
-
-    def complement(self):
-        """see week 9 notes on how to implement"""
-
-
-
-def SCC_Minimize(cover: Cover):
-    """Performs SCC minimization on input Cover. Does not modify cover; instead, it builds a new, minimized one."""
-    new_cover = Cover()
+def SCC_Minimize(cover: list[Cube]) -> list[Cube]:
+    """Performs SCC minimization on input cover list. Does not modify cover; instead, it builds a new minimized list."""
+    new_cover = []
     rejected_cubes = set() # stores indices of cubes in cover that will not be included in the new cover
-    for cube_idx in range(cover.size()):   
+    for cube_idx in range(len(cover)):
         curr_cube = cover[cube_idx]     
 
         # Do not add null cubes
@@ -259,7 +165,7 @@ def SCC_Minimize(cover: Cover):
         if flag == 1:
             continue
 
-        new_cover.add(curr_cube)
+        new_cover.append(curr_cube)
     
     return new_cover
 
@@ -320,7 +226,38 @@ class NotTautology(Exception):
     reduction results in no tautology.
     """
     pass
-def unate_reduction(cover: Cover) -> Cover:
+
+
+def cover_get_columns(cover: list[Cube]):
+    """Returns zip object containing corresponding entries in each column for a cover list."""
+    return zip(*(cube.cube for cube in cover))
+
+
+def cover_unate_columns(cover: list[Cube]) -> list[int]:
+    """Returns a list of all unate columns (positive or negative) in a cover list."""
+    columns = cover_get_columns(cover)
+    unate_cols = []
+
+    for idx, column in enumerate(columns):
+        column_it = iter(column)
+
+        for first in column_it:
+            if first != '-':
+                break
+        else:
+            unate_cols.append(idx)
+            continue
+
+        for value in column_it:
+            if value != first and value != '-':
+                break
+        else:
+            unate_cols.append(idx)
+
+    return unate_cols
+
+
+def unate_reduction(cover: list[Cube]) -> list[Cube]:
     """
     Suppose you have a cover that can be rearranged as:
     F = [[U, F1], [D, F2]], where U are unate columns and D is a matrix of '-'s. Then, F is a tautology iff 
@@ -344,7 +281,7 @@ def unate_reduction(cover: Cover) -> Cover:
     # fails. In other words, D is the matrix whose entries are '-' in ALL unate columns of F. Having rows that are all-dash on some proper subset of unate columns is
     # insufficient to build D. There must be simultaneous dashes across the entire set of unate columns in order for unate reduction to occur. 
 
-    unate_columns = cover.unate_columns()       # grabbing the indices of all of the unate columns (positive or negative unate, includes columns containing all dashes, if they exist).
+    unate_columns = cover_unate_columns(cover)       # grabbing the indices of all of the unate columns (positive or negative unate, includes columns containing all dashes, if they exist).
     unate_columns_set = set(unate_columns)      # also obtaining a set version for fast lookups
 
     # now we need to figure out which rows have all dashes in those unate columns
@@ -367,7 +304,7 @@ def unate_reduction(cover: Cover) -> Cover:
         return cover        # if unate reduction is impossible, return the original cover
     
     # Now we need to construct the matrix F2. This will consist of the rows in d_rows and the columns NOT IN unate_columns
-    F2 = Cover()
+    F2 = []
     for row_num in d_rows:
         cube_of_interest = cover[row_num]    # a subset of this cube will be added to the new cover
         new_cube = ""                       # initializing new cube to be constructed from cube_of_interest
@@ -376,18 +313,18 @@ def unate_reduction(cover: Cover) -> Cover:
                 continue
             new_cube += val                 # we add val to new_cube as long as we are not looking in a forbidden column
             #print(f"Adding {val} from column {idx} to new_cube, since column {idx} is not a unate column")
-        F2.add(Cube(new_cube))
+        F2.append(Cube(new_cube))
 
     return F2
 
-def most_binate_variable(cover: Cover):
+def most_binate_variable(cover: list[Cube]):
     """Returns the index of the most binate variable in the cover."""
     # Binateness will be checked as follows. Let "dc" be the number of dashes in the column.
     # Then, as we iterate through the column, if we see a '1', increment the counter. If we see
     # a '0', decrement the counter. Call this counter "C". The metric for binateness will seek
     # to minimize the quantity abs(c) + dc. Thus, equal numbers of '1's and '0's is rewarded, 
     # and dashes are penalized. 
-    columns = cover.get_columns()
+    columns = cover_get_columns(cover)
     most_binate_column = None
     best_column_score = math.inf
     for column_idx, column in enumerate(columns):
@@ -410,35 +347,35 @@ def most_binate_variable(cover: Cover):
 
     return most_binate_column
 
-def cofactors(cover: Cover, variable: int) -> tuple[Cover, Cover]:
+def cofactors(cover: list[Cube], variable: int) -> tuple[list[Cube], list[Cube]]:
     """
     Returns a tuple of the positive and negative cofactors of cover with respect to variable.
     Positive cofactor is index 0 in return tuple, negative cofactor is index 1 in return tuple. 
     """
 
-    pos_cofactor = Cover()
-    neg_cofactor = Cover()
+    pos_cofactor = []
+    neg_cofactor = []
 
     for cube in cover:
         val, reduced_cube = cube.reduced_on_variable(variable)
 
         if val == '1':
-            pos_cofactor.add(reduced_cube)
+            pos_cofactor.append(reduced_cube)
         elif val == '0':
-            neg_cofactor.add(reduced_cube)
+            neg_cofactor.append(reduced_cube)
         elif val == '-':
-            pos_cofactor.add(reduced_cube)
-            neg_cofactor.add(reduced_cube)
+            pos_cofactor.append(reduced_cube)
+            neg_cofactor.append(reduced_cube)
 
     return pos_cofactor, neg_cofactor
 
-def is_tautology(cover: Cover) -> bool:
+def is_tautology(cover: list[Cube]) -> bool:
     """Checks if cover is a tautology"""
 
     #cover = SCC_Minimize(cover)
     minterms_covered = 0
     dont_cares = 0                          # number of dashes (dont care's) in the cover
-    num_variables = cover[0].size()         # number of variables in a cover is equal to the number of variables in one of it's cubes
+    num_variables = cover[0].size()         # number of variables in a cover is equal to the number of variables in one of its cubes
     for cube in cover:
         dashes = cube.num_DC()
         if dashes == num_variables:         # if a cube has all dashes, then it covers all minterms, so the cover is a tautology
@@ -460,7 +397,7 @@ def is_tautology(cover: Cover) -> bool:
         return True
 
     # Special case 3: If there is a column with all 1s or all 0s, then the cover is not a tautology.
-    if column_check(cover.get_columns()):
+    if column_check(cover_get_columns(cover)):
         #print(f'Cover is not a tautology by special case 3.\nCover: {cover}')
         return False
     
@@ -488,17 +425,17 @@ def is_tautology(cover: Cover) -> bool:
 
 
 
-test_num = 3
+test_num = 2
 file_path = f"Tautology_Check_Tests/TC_T{test_num}"
 #file_path = f"Examples/majority-1"
 
 with open(file_path, "r") as file:
-    cover = Cover()
+    cover = []
     for line in file:
         if line[0] == "." or line[0] == "#":
             continue
         cube_str = line.strip().split()[0] # strips leading/trailing whitespace, then splits into [inputs, output], then discards the output. Looks like "0-11-1-000-1" (or something similar)
-        cover.add(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
+        cover.append(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
 
 cur_time = time.perf_counter()
 print(is_tautology(cover))
