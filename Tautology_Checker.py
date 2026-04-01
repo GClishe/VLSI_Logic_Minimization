@@ -391,6 +391,43 @@ def cofactors(cover: list[Cube], variable: int) -> tuple[list[Cube], list[Cube]]
 
     return pos_cofactor, neg_cofactor
 
+def cofactors_view(master_cover: list[Cube], view: CoverView, local_var_idx: int):
+    """
+    Returns a tuple of the positive and negative cofactors of the cover represented by view with respect to the variable at local_var_idx in view.cols.
+    """
+    # local_var_idx is an index into view.cols, which is the index of the variable in the current view. 
+    # We need to convert this to an index into the original master cover, since the cubes in master_cover are indexed according to the original variable ordering.
+    # As an example, if view.cols = (0, 2, 4) and local_var_idx = 1, then original_var_idx = 2, since the variable at index 1 in the current view corresponds to 
+    # the variable at index 2 in the original master cover
+    original_var_idx = view.cols[local_var_idx] # the index of the variable in the original master cover that corresponds to the local variable index in the current view
+
+    pos_rows = []   # rows in master cover that have a 1 in the variable of interest (original_var_idx)
+    neg_rows = []   # rows in master cover that have a 0 in the variable of interest (original_var_idx)
+
+    for row_idx in view.rows:   # each value in view.rows is an index into master_cover that corresponds to a cube that is active in the current view
+        val = master_cover[row_idx][original_var_idx] # the value of the variable of interest in the current row of the master cover
+
+        if val == '1':
+            pos_rows.append(row_idx)
+        elif val == '0':
+            neg_rows.append(row_idx)
+        elif val == '-':
+            pos_rows.append(row_idx)
+            neg_rows.append(row_idx)
+    
+    new_cols = view.cols[:local_var_idx] + view.cols[local_var_idx+1:] # the new view will have the same columns as the old view, except with the variable of interest removed
+
+    # Instead of constructing new covers for the cofactors, we can just construct new views that reference the relevant rows and columns in the original master cover. 
+    # This is more efficient because we don't have to create new cube objects or new cover lists; we can just keep track of which rows and columns are relevant for 
+    # each cofactor using the CoverView object.
+
+    # Basically the positive cofactor view contains all of the rows that have a 1 in the variable of interest along with all of the columns except the variable of interest,
+    # and the negative cofactor view contains all of the rows that have a 0 in the variable of interest along with all of the columns except the variable of interest.
+    return (
+        CoverView(tuple(pos_rows), new_cols),
+        CoverView(tuple(neg_rows), new_cols),
+    )
+
 def is_tautology(cover: list[Cube]) -> bool:
     """Checks if cover is a tautology"""
 
