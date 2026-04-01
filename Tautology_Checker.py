@@ -428,6 +428,29 @@ def cofactors_view(master_cover: list[Cube], view: CoverView, local_var_idx: int
         CoverView(tuple(neg_rows), new_cols),
     )
 
+def column_check_view(master_cover: list[Cube], view: CoverView):
+    """Returns True if there is a column in the view that contains all 1s or all 0s (and no '-'s), and False otherwise."""
+    for col_idx in view.cols: # loop thru all of the columns specified in the given view
+        first = None    # first is assigned to the first non-dash value in the column, and is used to compare against the rest of the values in the column
+        pure = True     # flag that is raised to False if we encounter a value in the column that is not the same as first (and is not a dash)
+
+        for row_idx in view.rows: # loop thru all of the rows specified in the given view
+            val = master_cover[row_idx][col_idx] # the value of the current column in the current row of the master cover
+            if val == '-':
+                pure = False
+                break
+            if first is None:
+                first = val
+            elif val != first:
+                pure = False
+                break
+
+
+        if pure and first is not None:  # first would be None if all of the values in the column are dashes, in which case we do not consider the column to be pure
+            return True
+
+    return False
+
 def is_tautology(cover: list[Cube]) -> bool:
     """Checks if cover is a tautology"""
 
