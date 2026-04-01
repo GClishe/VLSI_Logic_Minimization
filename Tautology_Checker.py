@@ -190,57 +190,36 @@ def make_initial_view(master_cover: list[Cube]) -> CoverView:
         cols=tuple(range(master_cover[0].size()))
     )
 
-
-def column_check(columns_zip):
+def unate_columns_view(master_cover: list[Cube], view: CoverView) -> tuple[int, ...]:
     """
-    Returns True if the columns_zip (expected to be a zip object from the Cover.get_columns() method) object
-    has any columns with all 0s or all 1s. If a column contains '-', then it does not qualify.
+    Returns the LOCAL indices of all unate columns in the current view.
+
+    A column is unate if it contains no '1's or no '0's (but can contain '-'s).
+
+    Local indices refers to the indices in the current view, as opposed to the master cover. For example, if view.cols = (0, 2, 4) 
+    and the first column in the view (column 0 in the view) is unate, then this function would return 0 as the local index of that 
+    unate column, even though the index of that column in the master cover is 0. Similarly, if the second column in the view 
+    (column 1 in the view) is unate, then this function would return 1 as the local index of that unate column, even though the 
+    index of that column in the master cover is 2.
     """
-    
-    # First, we add a check to make sure that columns_zip is not empty, since if it was empty, it would result in a False return which might 
-    # mislead you into thinking there are no pure 1/0 columns in the cover when there actually are. This would occur if you accidentally
-    # unpack the columns_zip object *before* passing it into this function. This did happen to me and the bug took a while to track down,
-    # Hence the additional check.
+    unate_local_cols = []
 
-    # As an example to illustrate that bug, consider this code:
-    # cover = Cover()
-    # cover.add(Cube("100"))
-    # cover.add(Cube("001"))
-    # cover.add(Cube("-0-"))
-    # print(cover)
-    # columns = cover.get_columns()     
-    # print(list(columns))
-    # print(column_check(columns))
+    for local_idx, col_idx in enumerate(view.cols):
+        first_polarity = None       # first non-dash symbol encountered in this column
 
-    # We expect that code to print first the cover, then the columns, then True, since the second column is all 0s. However, this code actually returns False at the end.
-    # The problem is because when we print(list(columns)), the list(columns) would exhaust the iterator, so that when we do column_check(columns), we are passing an 
-    # *empty* iterator to column_check, which would skip the for loop and immediately return False. That is why it is necessary to raise an error if an empty columns_zip
-    # is passed to this function. 
-    
-    
-    it = iter(columns_zip)
+        for row_idx in view.rows:
+            val = master_cover[row_idx][col_idx] # the value of the current column in the current row of the master cover
 
-    try:
-        first_column = next(it)
-    except StopIteration:
-        raise ValueError("columns_zip is empty. Did you exhaust the columns_zip iterator already?")
-
-    # chain(iterable, iterator) allows us to loop through the iterable first normally (in this case, a 1 element tuple containing first_column), and then through an iterator without unpacking it. Without chain, we'd
-    # have to loop through something like this tuple: (first_column, *columns_zip), which would be bad because it would first unpack the entire columns_zip iterator before starting the loop, which is inefficient.
-    for column in chain((first_column,),columns_zip):
-        column_iterable = iter(column)  # converts column into an iterable
-        first = next(column_iterable)   # assigns first to the very first value in the iterable
-        if first == '-': 
-            continue
-
-        # below I am using a for...else statement, which is pretty rare. Basically, if the for loop encounters the break satement, then the else statement will not execute. If instead the for loop completes without hitting the break statement, then the else statement will execute.
-        for x in column_iterable: # loops through the rest of the elements, stopping early and returning False if x == first is ever violated
-            if x != first:
+            if val == '-':
+                continue
+            if first_polarity is None:
+                first_polarity = val
+            elif val != first_polarity:
                 break
-        else: # if the loop completes without hitting a break statement, then all elements in the column are the same (and not '-'), so we return True
-            return True
-    return False
+        else:
+            unate_local_cols.append(local_idx)
 
+    return tuple(unate_local_cols)
 
 class NotTautology(Exception):
     """
@@ -248,96 +227,41 @@ class NotTautology(Exception):
     reduction results in no tautology.
     """
     pass
-
-
-def cover_get_columns(cover: list[Cube]):
-    """Returns zip object containing corresponding entries in each column for a cover list."""
-    return zip(*(cube.cube for cube in cover))
-
-
-def cover_unate_columns(cover: list[Cube]) -> list[int]:
-    """Returns a list of all unate columns (positive or negative) in a cover list."""
-    columns = cover_get_columns(cover)
-    unate_cols = []
-
-    for idx, column in enumerate(columns):
-        column_it = iter(column)
-
-        for first in column_it:
-            if first != '-':
-                break
-        else:
-            unate_cols.append(idx)
-            continue
-
-        for value in column_it:
-            if value != first and value != '-':
-                break
-        else:
-            unate_cols.append(idx)
-
-    return unate_cols
-
-
-def unate_reduction(cover: list[Cube]) -> list[Cube]:
+def unate_reduction_view(master_cover: list[Cube], view: CoverView) -> CoverView:
     """
-    Suppose you have a cover that can be rearranged as:
-    F = [[U, F1], [D, F2]], where U are unate columns and D is a matrix of '-'s. Then, F is a tautology iff 
-    F2 is a tautology.
+    View based unate reduction.
 
-    For example, consider the cover 
-    F = [
-            [1,0,1,0],
-            [1,0,0,-],
-            [-,0,1,0],
-            [-,-,1,1],
-            [-,-,-,1]
-        ]
-    is in the correct form, where U = [[1,0],[1,0],[-,0]] (positive unate on the first column, negative unate on second column) and 
-    D = [[-,-],[-,-]]. Then, F is a tautology if and only if [[1,1][-,1]] is a tautology.
+    Suppose the current subcover can be rearraged as [[U, F1], [D, F2]], where U consists of all unate columns
+    in the current view and D is the set of rows that are '-' in every unate column.
+
+    Then, F is tautology iff F2 is a tautology. 
     """
-    # Here's what I'm thinking so far.... The matrix D can only be constructed from unate columns (positive or negative or a combination of both). So first, 
-    # this algorithm should probably identify all of the unate columns in F and group them together. These columns will be used to determine the matrices U and D.
-    # Next, we have to figure out which rows in those columns are all 0s. We build the maximal set of such rows to construct the matrix D. In other words, D contains
-    # all of the unate columns and is also all dashes. If there are no rows of all dashes within the unate columns, we cannot construct a matrix D and unate reduction
-    # fails. In other words, D is the matrix whose entries are '-' in ALL unate columns of F. Having rows that are all-dash on some proper subset of unate columns is
-    # insufficient to build D. There must be simultaneous dashes across the entire set of unate columns in order for unate reduction to occur. 
+    unate_local_cols = unate_columns_view(master_cover, view)
 
-    unate_columns = cover_unate_columns(cover)       # grabbing the indices of all of the unate columns (positive or negative unate, includes columns containing all dashes, if they exist).
-    unate_columns_set = set(unate_columns)      # also obtaining a set version for fast lookups
+    # if there are no unate columns in the current view, then no reduction is possible
+    if not unate_local_cols:
+        return view
+    
+    unate_local_set = set(unate_local_cols)     # set version for fast lookups
 
-    # now we need to figure out which rows have all dashes in those unate columns
-    d_rows = []         # the rows in matrix D are the rows that have all dashes in the unate_columns
-    for row_num, cube in enumerate(cover):
-        for i in unate_columns:
-            if cube[i] != '-':
+    d_rows = []     # rows that are '-' in every unate column
+    for row_idx in view.rows:
+        cube = master_cover[row_idx]    # obtaining the cube in the master cover corresponding to the current row index in the view
+
+        for local_idx in unate_local_cols:          # iterating through the local indices of the unate columns
+            original_col_idx = view.cols[local_idx] # getting the index of the unate column in the master cover corresponding to the local index in the view
+            if cube[original_col_idx] != '-':
                 break
         else:
-            d_rows.append(row_num)
+            d_rows.append(row_idx)
 
-    if len(unate_columns) != 0 and len(d_rows) == 0:
-        # if this is true, then by the corlollary to general unate reduction, F is not a tautology 
-        raise NotTautology("No all-dash rows in unate columns means that the cover is not a tautology.")
+    # Corollary: if there are unate columns but no all-dash rows in them,
+    # then the cover is not a tautology.
+    if len(unate_local_cols) != 0 and len(d_rows) == 0:
+        raise NotTautology("No rows are '-' in all unate columns, so the cover is not a tautology.")
     
-    #print(f"Rows in F2 are {d_rows}")
-    #print(f"Columns not included in F2 are {unate_columns}")
-
-    if len(d_rows) == 0:
-        return cover        # if unate reduction is impossible, return the original cover
-    
-    # Now we need to construct the matrix F2. This will consist of the rows in d_rows and the columns NOT IN unate_columns
-    F2 = []
-    for row_num in d_rows:
-        cube_of_interest = cover[row_num]    # a subset of this cube will be added to the new cover
-        new_cube = ""                       # initializing new cube to be constructed from cube_of_interest
-        for idx, val in enumerate(cube_of_interest):
-            if idx in unate_columns_set:
-                continue
-            new_cube += val                 # we add val to new_cube as long as we are not looking in a forbidden column
-            #print(f"Adding {val} from column {idx} to new_cube, since column {idx} is not a unate column")
-        F2.append(Cube(new_cube))
-
-    return F2
+    new_cols = tuple(col_idx for local_idx, col_idx in enumerate(view.cols) if local_idx not in unate_local_set) # the new view will have the same columns as the old view, except with the unate columns removed
+    return CoverView(rows=tuple(d_rows), cols=new_cols)
 
 
 def most_binate_variable_view(master_cover: list[Cube], view: CoverView):
@@ -468,6 +392,14 @@ def is_tautology_view(master_cover: list[Cube], view: CoverView) -> bool:
     # if there exists a column with all 1s or all 0s without any dashes, then the cover is not a tautology
     if column_check_view(master_cover, view):
         return False
+
+    # Now we do unate reduction
+    try:
+        view = unate_reduction_view(master_cover, view)
+    except NotTautology:
+        return False
+
+    # now we select the most binate variable and obtain the positive and negative cofactor views with respect to that variable.
 
     j = most_binate_variable_view(master_cover, view)               # j is the local index of the most binate variable (index in the current view, not the master cover)
     pos_view, neg_view = cofactors_view(master_cover, view, j)      # obtaining the positive and negative cofactor views with respect to the most binate variable
