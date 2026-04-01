@@ -214,8 +214,8 @@ def SCC_Minimize(cover: Cover):
         
         # Reject cubes contained by other cubes
         flag = 0
-        for cube2 in cover:
-            if cube2.contains(curr_cube):
+        for idx, cube2 in enumerate(cover):
+            if cube2.contains(curr_cube) and idx != cube_idx:       # every cube contains itself, so we need to exclude self-comparison
                 rejected_cubes.add(cube_idx)
                 flag = 1
                 break
@@ -323,8 +323,8 @@ def unate_reduction(cover: Cover) -> Cover:
         # if this is true, then by the corlollary to general unate reduction, F is not a tautology 
         raise NotTautology("No all-dash rows in unate columns means that the cover is not a tautology.")
     
-    print(f"Rows in F2 are {d_rows}")
-    print(f"Columns not included in F2 are {unate_columns}")
+    #print(f"Rows in F2 are {d_rows}")
+    #print(f"Columns not included in F2 are {unate_columns}")
 
     if len(d_rows) == 0:
         return cover        # if unate reduction is impossible, return the original cover
@@ -378,19 +378,14 @@ def cofactors(cover: Cover, variable: int) -> tuple[Cover, Cover]:
     Returns a tuple of the positive and negative cofactors of cover with respect to variable.
     Positive cofactor is index 0 in return tuple, negative cofactor is index 1 in return tuple. 
     """
-    # this line indexes a zip object, which is unfortunatley not O(1). However, creating the zip object is O(1), so indexing it is O(variable].
-    # If instead I had a get_single_column(variable) method, it would be O(n) to get the column and O(1) to index it (where n is number of rows in the cover).
-    # So indexing the zip object is still faster (unless variable is the very last column, in which case they are equally slow). 
-    column = cover.get_columns()[variable]      
+
     pos_cofactor = Cover()
     neg_cofactor = Cover()
 
+    for cube in cover:
+        cube_of_interest = Cube(cube.cube)      # copying cube.cube so that we can modify cube_of_interest without affecting cover
+        val = cube_of_interest.pop(variable)    # getting the value at variable and removing that variable from cube_of_interest 
 
-    for idx, val in enumerate(column):
-        cube_of_interest = Cube(cover[idx].cube)  # we have to construct a new cube object in order to use the cube_remove() method, which is necessary to remove the variable column from the cofactor cubes. This is O(n) where n is the number of variables in the cover, since we have to copy the entire cube string in order to build the new cube.
-        val = cube_of_interest.pop(variable)   # removes the variable column from the cube of interest and returns the value that was stored there (either '1', '0', or '-')
-
-        #the pop method modified cube_of_interest by removing the variable column, so we can add it to the appropriate cofactor without worrying about removing the variable column later.
         if val == '1':
             pos_cofactor.add(cube_of_interest)
         elif val == '0':
@@ -398,7 +393,7 @@ def cofactors(cover: Cover, variable: int) -> tuple[Cover, Cover]:
         elif val == '-':
             pos_cofactor.add(cube_of_interest)
             neg_cofactor.add(cube_of_interest)
-            
+
     return pos_cofactor, neg_cofactor
 
 def is_tautology(cover: Cover) -> bool:
@@ -419,6 +414,7 @@ def is_tautology(cover: Cover) -> bool:
     # Special case 1 (Week 8 notes):
     # Theorem: Let F be a cover with n variables. If the total number of minterms covered by F is less than 2**n, then F is not a tautology. 
     if minterms_covered < minterms_required:
+        print(f'Cover is not a tautology by special case 1.\nCover: {cover}')
         return False
     
     # Special case 2: 
@@ -428,12 +424,14 @@ def is_tautology(cover: Cover) -> bool:
 
     # Special case 3: If there is a column with all 1s or all 0s, then the cover is not a tautology.
     if column_check(cover.get_columns()):
+        print(f'Cover is not a tautology by special case 3.\nCover: {cover}')
         return False
     
     # now do unate reduction
     try:
         cover = unate_reduction(cover)
     except NotTautology:
+        print(f'Cover is not a tautology by unate reduction corollary.\nCover: {cover}')
         return False
     
     # now select the most binate variable (j)
@@ -443,8 +441,10 @@ def is_tautology(cover: Cover) -> bool:
 
     # and look at the cofactors with respect to j
     if is_tautology(F_j) == False:
+        print(f'Cover is not a tautology because F_j is not a tautology.\nF_j: {F_j}')
         return False
     if is_tautology(F_j_prime) == False:
+        print(f'Cover is not a tautology because F_j_prime is not a tautology.\nF_j_prime: {F_j_prime}')
         return False
 
     return True
@@ -452,8 +452,8 @@ def is_tautology(cover: Cover) -> bool:
 
 
 test_num = 1
-#file_path = f"Tautology_Check_Tests/TC_T{test_num}"
-file_path = f"Examples/majority-1"
+file_path = f"Tautology_Check_Tests/TC_T{test_num}"
+#file_path = f"Examples/majority-1"
 
 with open(file_path, "r") as file:
     cover = Cover()
@@ -463,16 +463,6 @@ with open(file_path, "r") as file:
         cube_str = line.strip().split()[0] # strips leading/trailing whitespace, then splits into [inputs, output], then discards the output. Looks like "0-11-1-000-1" (or something similar)
         cover.add(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
 
-cover = Cover()
-cover.add(Cube("10-0-1-"))
-cover.add(Cube("10-1-1-"))
-cover.add(Cube("1--0-0-"))
-cover.add(Cube("1--1-1-"))
-cover.add(Cube("---0-1-"))
-cover.add(Cube("1--1-0-"))
-
-print(cover)
-print(unate_reduction(cover))
-print(most_binate_variable(cover))
+print(is_tautology(cover))
 
 
