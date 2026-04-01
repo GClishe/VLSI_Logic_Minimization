@@ -34,6 +34,8 @@ from bitarray import bitarray
 import numpy as np
 from itertools import chain     # yields elements from multiple iterables sequentially without having to copy or materialize them in any way. This is specificaly helpful in column_check()
 import math
+import time
+
 
 class Cube():
     def __init__(self, vars: str) -> None:
@@ -399,6 +401,7 @@ def cofactors(cover: Cover, variable: int) -> tuple[Cover, Cover]:
 def is_tautology(cover: Cover) -> bool:
     """Checks if cover is a tautology"""
 
+    #cover = SCC_Minimize(cover)
     minterms_covered = 0
     dont_cares = 0                          # number of dashes (dont care's) in the cover
     num_variables = cover[0].size()         # number of variables in a cover is equal to the number of variables in one of it's cubes
@@ -414,7 +417,7 @@ def is_tautology(cover: Cover) -> bool:
     # Special case 1 (Week 8 notes):
     # Theorem: Let F be a cover with n variables. If the total number of minterms covered by F is less than 2**n, then F is not a tautology. 
     if minterms_covered < minterms_required:
-        print(f'Cover is not a tautology by special case 1.\nCover: {cover}')
+        #print(f'Cover is not a tautology by special case 1.\nCover: {cover}')
         return False
     
     # Special case 2: 
@@ -424,14 +427,14 @@ def is_tautology(cover: Cover) -> bool:
 
     # Special case 3: If there is a column with all 1s or all 0s, then the cover is not a tautology.
     if column_check(cover.get_columns()):
-        print(f'Cover is not a tautology by special case 3.\nCover: {cover}')
+        #print(f'Cover is not a tautology by special case 3.\nCover: {cover}')
         return False
     
     # now do unate reduction
     try:
         cover = unate_reduction(cover)
     except NotTautology:
-        print(f'Cover is not a tautology by unate reduction corollary.\nCover: {cover}')
+        #print(f'Cover is not a tautology by unate reduction corollary.\nCover: {cover}')
         return False
     
     # now select the most binate variable (j)
@@ -441,17 +444,17 @@ def is_tautology(cover: Cover) -> bool:
 
     # and look at the cofactors with respect to j
     if is_tautology(F_j) == False:
-        print(f'Cover is not a tautology because F_j is not a tautology.\nF_j: {F_j}')
+        #print(f'Cover is not a tautology because F_j is not a tautology.\nF_j: {F_j}')
         return False
     if is_tautology(F_j_prime) == False:
-        print(f'Cover is not a tautology because F_j_prime is not a tautology.\nF_j_prime: {F_j_prime}')
+        #print(f'Cover is not a tautology because F_j_prime is not a tautology.\nF_j_prime: {F_j_prime}')
         return False
 
     return True
 
 
 
-test_num = 1
+test_num = 2
 file_path = f"Tautology_Check_Tests/TC_T{test_num}"
 #file_path = f"Examples/majority-1"
 
@@ -463,6 +466,8 @@ with open(file_path, "r") as file:
         cube_str = line.strip().split()[0] # strips leading/trailing whitespace, then splits into [inputs, output], then discards the output. Looks like "0-11-1-000-1" (or something similar)
         cover.add(Cube(cube_str))          # converts cube_str into a Cube object, then adds the Cube to cover
 
+cur_time = time.perf_counter()
 print(is_tautology(cover))
+print(f"Time elapsed: {time.perf_counter() - cur_time}s")
 
 
