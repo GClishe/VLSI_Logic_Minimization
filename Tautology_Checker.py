@@ -369,6 +369,39 @@ def most_binate_variable(cover: list[Cube]):
 
     return most_binate_column
 
+def most_binate_variable_view(master_cover: list[Cube], view: CoverView):
+    """Returns the local index of the most binate variable in the view. Local index means the index of the variable in the current view, as opposed to the master cover."""
+
+    # Binateness in a view will be checked as follows. Let "dc" be the number of dashes in the column within the view. Then, as we iterate through the column within the view, if we see a '1', increment
+    # the counter. If we see a '0', decrement the counter. Call this counter "C". The metric for binateness will seek to minimize the quantity abs(c) + dc. Thus, equal numbers of '1's and '0's is 
+    # rewarded, and dashes are penalized.
+
+    best_local_idx = None
+    best_score = math.inf   # the best (lowest) score for binateness that we have seen so far
+
+    for local_idx, col_idx in enumerate(view.cols): # local_idx is the index of the variable in the current view, NOT the master cover. col_idx is the index of the variable in the master cover. We need both of these because we need to loop through the relevant rows in the master cover to compute the score for this column, but we also need to keep track of the local index of the column in the current view since that is what will be used in the recursive calls after we select the most binate variable.
+        dc = 0
+        ctr = 0
+
+        for row_idx in view.rows:
+            val = master_cover[row_idx][col_idx]
+            if val == '-':
+                dc += 1
+                if dc >= best_score:        # if the number of dont cares exceeds the best known score, then we already know that this column is no longer a candidate, so we stop looping
+                    break
+
+            elif val == '1':
+                ctr += 1
+            elif val == '0':
+                ctr -= 1
+
+        score = abs(ctr) + dc
+        if score < best_score:
+            best_score = score
+            best_local_idx = local_idx
+
+    return best_local_idx
+
 def cofactors(cover: list[Cube], variable: int) -> tuple[list[Cube], list[Cube]]:
     """
     Returns a tuple of the positive and negative cofactors of cover with respect to variable.
