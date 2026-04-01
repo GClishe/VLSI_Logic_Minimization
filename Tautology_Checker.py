@@ -52,7 +52,7 @@ class Cube():
             elif var == "-":
                 self.bitarr.extend([1,1])
 
-    @classmethod
+    @classmethod    # class methods are called on the class itself, rather than on an instance of the class. This is useful for factory methods that create instances of the class in a specific way, which is exactly what this method is doing. By using @classmethod, we can call Cube._from_representations(cube_str, cube_bits) without needing to first create an instance of Cube, which is necessary since we want to bypass the __init__ constructor entirely in some cases.
     def _from_representations(cls, cube_str: str, cube_bits: bitarray):
         """Creates a Cube directly from already-synchronized string and bitarray representations."""
         # This method allows us to avoid recomputing bitarr from the string when we already have both representations consistent with each other. 
@@ -488,7 +488,7 @@ def is_tautology(cover: Cover) -> bool:
 
 
 
-test_num = 2
+test_num = 3
 file_path = f"Tautology_Check_Tests/TC_T{test_num}"
 #file_path = f"Examples/majority-1"
 
