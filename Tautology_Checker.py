@@ -339,35 +339,6 @@ def unate_reduction(cover: list[Cube]) -> list[Cube]:
 
     return F2
 
-def most_binate_variable(cover: list[Cube]):
-    """Returns the index of the most binate variable in the cover."""
-    # Binateness will be checked as follows. Let "dc" be the number of dashes in the column.
-    # Then, as we iterate through the column, if we see a '1', increment the counter. If we see
-    # a '0', decrement the counter. Call this counter "C". The metric for binateness will seek
-    # to minimize the quantity abs(c) + dc. Thus, equal numbers of '1's and '0's is rewarded, 
-    # and dashes are penalized. 
-    columns = cover_get_columns(cover)
-    most_binate_column = None
-    best_column_score = math.inf
-    for column_idx, column in enumerate(columns):
-        dc = 0
-        ctr = 0
-        for val in column:
-            if val == '-':
-                dc += 1
-                if dc >= best_column_score:  # there might be a better way to prune this earlier that takes into account the number of values left in the column, but i will go with this for now
-                    break  # if the number of dashes exceeds the best known column, then we already know that this column is no longer a candidate, so we stop looping
-            elif val == '1':
-                ctr += 1
-            elif val == '0':
-                ctr -= 1
-        else:
-            # another for...else block. This code will only run if we looped thru the entire column without breaking
-            if (column_score := abs(ctr) + dc) < best_column_score:
-                best_column_score = column_score
-                most_binate_column = column_idx
-
-    return most_binate_column
 
 def most_binate_variable_view(master_cover: list[Cube], view: CoverView):
     """Returns the local index of the most binate variable in the view. Local index means the index of the variable in the current view, as opposed to the master cover."""
@@ -401,28 +372,6 @@ def most_binate_variable_view(master_cover: list[Cube], view: CoverView):
             best_local_idx = local_idx
 
     return best_local_idx
-
-def cofactors(cover: list[Cube], variable: int) -> tuple[list[Cube], list[Cube]]:
-    """
-    Returns a tuple of the positive and negative cofactors of cover with respect to variable.
-    Positive cofactor is index 0 in return tuple, negative cofactor is index 1 in return tuple. 
-    """
-
-    pos_cofactor = []
-    neg_cofactor = []
-
-    for cube in cover:
-        val, reduced_cube = cube.reduced_on_variable(variable)
-
-        if val == '1':
-            pos_cofactor.append(reduced_cube)
-        elif val == '0':
-            neg_cofactor.append(reduced_cube)
-        elif val == '-':
-            pos_cofactor.append(reduced_cube)
-            neg_cofactor.append(reduced_cube)
-
-    return pos_cofactor, neg_cofactor
 
 def cofactors_view(master_cover: list[Cube], view: CoverView, local_var_idx: int):
     """
@@ -484,59 +433,58 @@ def column_check_view(master_cover: list[Cube], view: CoverView):
 
     return False
 
-def is_tautology(cover: list[Cube]) -> bool:
-    """Checks if cover is a tautology"""
 
-    #cover = SCC_Minimize(cover)
+def is_tautology_view(master_cover: list[Cube], view: CoverView) -> bool:
+
+    num_variables = len(view.cols)
     minterms_covered = 0
-    dont_cares = 0                          # number of dashes (dont care's) in the cover
-    num_variables = cover[0].size()         # number of variables in a cover is equal to the number of variables in one of its cubes
-    for cube in cover:
-        dashes = cube.num_DC()
-        if dashes == num_variables:         # if a cube has all dashes, then it covers all minterms, so the cover is a tautology
-            return True        
-        dont_cares += dashes
-        minterms_covered += 2**dashes       # number of minterms covered by a cube is 2**(num dashes in cube). For example, "0--" covers (000, 001, 010, 011)
-    
-    minterms_required = 2**num_variables    # used for special case 1 and 2
+    dont_cares = 0
 
-    # Special case 1 (Week 8 notes):
-    # Theorem: Let F be a cover with n variables. If the total number of minterms covered by F is less than 2**n, then F is not a tautology. 
+    for row_idx in view.rows:
+        cube = master_cover[row_idx]    # cube in master cover corresponding to the current row index in the view
+
+        dashes = 0
+        all_dash = True
+        for col_idx in view.cols:
+            if cube[col_idx] == '-':
+                dashes += 1
+            else:
+                all_dash = False
+
+        if all_dash:    # if a cube has all dashes, the cover is a tautology
+            return True
+
+        dont_cares += dashes
+        minterms_covered += 2 ** dashes     # number of minterms covered by a cube is 2**(num dashes in cube). For example, "0--" covers (000, 001, 010, 011)
+
+    minterms_required = 2 ** num_variables  # number of minterms required for a tautology is 2**(number of variables in the view)
+
     if minterms_covered < minterms_required:
-        #print(f'Cover is not a tautology by special case 1.\nCover: {cover}')
         return False
-    
-    # Special case 2: 
-    # Let F be a cover with no "-"s. Then if the total number of minterms covered by F is exactly 2**(num variables), then F is a tautology.
+
     if dont_cares == 0 and minterms_covered == minterms_required:
         return True
 
-    # Special case 3: If there is a column with all 1s or all 0s, then the cover is not a tautology.
-    if column_check(cover_get_columns(cover)):
-        #print(f'Cover is not a tautology by special case 3.\nCover: {cover}')
+    # if there exists a column with all 1s or all 0s without any dashes, then the cover is not a tautology
+    if column_check_view(master_cover, view):
+        return False
+
+    j = most_binate_variable_view(master_cover, view)               # j is the local index of the most binate variable (index in the current view, not the master cover)
+    pos_view, neg_view = cofactors_view(master_cover, view, j)      # obtaining the positive and negative cofactor views with respect to the most binate variable
+
+    # if either cofactor is not a tautology, then the cover is not a tautology.
+    if is_tautology_view(master_cover, pos_view) == False:
         return False
     
-    # now do unate reduction
-    try:
-        cover = unate_reduction(cover)
-    except NotTautology:
-        #print(f'Cover is not a tautology by unate reduction corollary.\nCover: {cover}')
-        return False
-    
-    # now select the most binate variable (j)
-    j = most_binate_variable(cover)
-
-    F_j, F_j_prime = cofactors(cover, j)
-
-    # and look at the cofactors with respect to j
-    if is_tautology(F_j) == False:
-        #print(f'Cover is not a tautology because F_j is not a tautology.\nF_j: {F_j}')
-        return False
-    if is_tautology(F_j_prime) == False:
-        #print(f'Cover is not a tautology because F_j_prime is not a tautology.\nF_j_prime: {F_j_prime}')
+    if is_tautology_view(master_cover, neg_view) == False:
         return False
 
     return True
+
+def is_tautology(cover: list[Cube]) -> bool:
+    """Wrapper for the is_tautology_view function that creates an initial view referencing the entire cover and then calls is_tautology_view on that view."""
+    view = make_initial_view(cover)
+    return is_tautology_view(cover, view)
 
 
 
