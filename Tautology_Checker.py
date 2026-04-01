@@ -35,7 +35,7 @@ import numpy as np
 from itertools import chain     # yields elements from multiple iterables sequentially without having to copy or materialize them in any way. This is specificaly helpful in column_check()
 import math
 import time
-
+from dataclasses import dataclass    
 
 class Cube():
     def __init__(self, vars: str) -> None:
@@ -168,6 +168,28 @@ def SCC_Minimize(cover: list[Cube]) -> list[Cube]:
         new_cover.append(curr_cube)
     
     return new_cover
+
+
+@dataclass(frozen=True)
+class CoverView:
+    """
+    CoverView is a lightweight object that allows us to keep track of which rows and columns of the master cover we are currently looking at, 
+    without having to create new cover lists or cube objects. This is useful for the recursive calls in is_tautology(), since we can just pass
+    a CoverView object that references the relevant rows and columns in the original master cover, rather than having to create entirely new 
+    covers for each recursive call.
+    """
+    rows: tuple[int, ...]   # indices into master_cover
+    cols: tuple[int, ...]   # indices of currently active variables
+
+def make_initial_view(master_cover: list[Cube]) -> CoverView:
+    """Creates an initial CoverView that references all rows and columns of the master cover."""
+    if not master_cover:
+        raise ValueError("Empty cover")
+    return CoverView(
+        rows=tuple(range(len(master_cover))),
+        cols=tuple(range(master_cover[0].size()))
+    )
+
 
 def column_check(columns_zip):
     """
