@@ -100,9 +100,8 @@ def expand_cover(cover, off_set):
     num_cubes, num_vars = expanded_cover.shape
     for i in range(num_cubes):
         c = expanded_cover[i].copy()
-        # Randomizing variable order here can also help break local minima
-        vars_to_test = np.random.permutation(num_vars)
-        for v in vars_to_test:
+        # Randomizing variable order here can also help break local minima, but ordered is ideal too
+        for v in range(num_vars): #np.random.permutation(num_vars):
             if c[v] != 3:
                 c_test = c.copy()
                 c_test[v] = 3 # Try to expand to dash

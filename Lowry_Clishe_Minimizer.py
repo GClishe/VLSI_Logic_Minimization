@@ -1,8 +1,18 @@
+#Test       1           2           3           4           5           6
+#Target     255         28          120         495         8192        65535
+#Cubes      130         28          124         504
+#Time       1.989       0.318       9.804       138.1
+#Bench      1           2           3           4           5           6           7           8           9           10
+#Target     255         330         799         NA          6435        2943        769         4095        65535       115
+#Cubes      255         336         804
+#Time       2.168       18.46       124.0
+
 # Lowry_Clishe_Minimizer.py
 # Usage: python3 Lowry_Clishe_Minimizer.py <input_file.espresso>
 
 #Irredundant before cover gen
 #Combine this, gemini3, and gemini4
+#Global flipper goes crazy on Test 1, global rand does nothing
 
 import sys
 import time
@@ -169,7 +179,7 @@ def last_gasp(cover, off_set, vars_list):
 def minimize(cover, vars_list, max_in_a_row):
     t = time.perf_counter()
     print("\nGenerating Complement...")
-    off_set = complement(cover, ComplTracker())
+    off_set = complement(cover, 0, ComplTracker())
     print(f"Generated complement with {len(off_set)} cubes in {(time.perf_counter() - t):.3f} sec\n")
 
     t = time.perf_counter()
@@ -185,7 +195,7 @@ def minimize(cover, vars_list, max_in_a_row):
 
         #idx = np.random.permutation(len(cover))
         #cover = cover[idx]
-        #cover = np.flip(cover, axis=1)
+        cover = np.flip(cover, axis=1)
 
         t = time.perf_counter()
         cover = reduce_cover(cover, vars_list)

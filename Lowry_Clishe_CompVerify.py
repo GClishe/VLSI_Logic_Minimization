@@ -17,6 +17,7 @@ cover2, _, _ = parse_espresso(file2)
 n_vars = cover1.shape[1]
 
 union_cover = np.vstack((cover1, cover2))
+union_cover = np.array(list({tuple(cube) for cube in union_cover}), dtype=np.uint8)
 
 print(f"File 1: {len(cover1)} cubes")
 print(f"File 2: {len(cover2)} cubes")
