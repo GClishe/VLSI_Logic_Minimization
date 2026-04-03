@@ -1,5 +1,5 @@
 #To use, run the command 
-#   python3 Lowry_Clishe_CompGen.py <directory of cover file>
+#   python3 Lowry_Clishe_CompGen.py <path of cover file>
 #An espresso file for the complement cover will be placed in the folder Lowry_Clishe_Complement_Covers
 #Make sure this folder exists before running the script
 
@@ -41,18 +41,16 @@ class ComplTracker:                                                             
         self.cofactor_count = 0
 
 def complement_single_cube(cube, num_vars):                                                         #Use DeMorgan's law to complement a cube
-    comp_cover = []                                                                                 #Create an empty list
-    for i in range(num_vars):                                                                       #For each variable in the cube
-        if cube[i] == 1:                                                                            #If the value is '0' (1)
-            new_cube = np.full(num_vars, 3)                                                         #Create a new cube of all '-' (3)
-            new_cube[i] = 2                                                                         #Fill in the variable with a '1' (2)
-            comp_cover.append(new_cube)                                                             #Append the new cube to the cover list
-        elif cube[i] == 2:                                                                          #If the value is '1' (2)
-            new_cube = np.full(num_vars, 3)                                                         #Create a new cube of all '-' (3)
-            new_cube[i] = 1                                                                         #Fill in the variable with a '0' (1)
-            comp_cover.append(new_cube)                                                             #Append the new cube to the cover list
-    if comp_cover: return np.array(comp_cover, dtype=np.uint8)                                      #If there's stuff in the new cover, return it as an np array
-    return np.empty((0, num_vars), dtype=np.uint8)                                                  #If the array is empty, it means the cube was all '3', return a null cube
+    cube = np.asarray(cube, dtype=np.uint8)                                                         #Make the cube a numpy array if it is not already
+    mask = cube != 3                                                                                #Create a mask for the non '-' (3) values
+    idx = np.flatnonzero(mask)                                                                      #Get the indices of the non '-' values
+    if idx.size == 0:
+        return np.empty((0, num_vars), dtype=np.uint8)                                              # If cover is all dashes, then complement is empty
+    comp_cover = np.full((idx.size, num_vars), 3, dtype=np.uint8)                                   # initialize 2d array of dahses
+    comp_cover[np.arange(idx.size), idx] = 3 - cube[idx]                                            # Set the non-dash values to their complements (1 becomes 2, 2 becomes 1)
+    return comp_cover
+
+
 
 def cofactor(cover, var_idx, val_pcn):                                                              #Create a cofactor of a given cover
     cover = cover[(cover[:, var_idx] & val_pcn) != 0]                                               #Bitwise AND each val in the cofactor variable with the cofacotr value. Anything that's not null survives
@@ -136,6 +134,6 @@ if __name__ == "__main__":
     print(f"Time to Generate Complement:    {(time.perf_counter() - start_time):.3f} sec\n")
 
     start_time = time.perf_counter()
-    output_file = f"Lowry_Clishe_Complement_Covers/{input_file.split('/')[-1]}_compl"
-    export_espresso(comp_cover, ilb, ob, output_file)
-    print(f"Exported complement to {output_file} in {(time.perf_counter() - start_time):.3f} sec\n")
+    #output_file = f"Lowry_Clishe_Complement_Covers/{input_file.split('/')[-1]}_compl"
+    #export_espresso(comp_cover, ilb, ob, output_file)
+    #print(f"Exported complement to {output_file} in {(time.perf_counter() - start_time):.3f} sec\n")
