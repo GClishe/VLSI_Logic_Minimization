@@ -5,12 +5,14 @@
 
 #Test       1           2           3           4           5           6
 #Target     255         28          120         495         8192        65535
-#Cubes      255         28          122         499
-#Time       2.461       0.247       3.450       48.21
+#Cubes      255         28          122         499         8192        NA
+#Time       2.461       0.247       3.450       48.21       107.7       NA
+#Finished afer initial irredundant pass of                  1.6         !264
 #Bench      1           2           3           4           5           6           7           8           9           10
 #Target     255         330         799         NA          6435        2943        769         4095        65535       115
-#Cubes      255         333         810         3023        6435        2953        769         4095                    115
-#Time       2.099       9.563       14.31       452.1       232.8       808.6       14.64       641.2                   234.5
+#Cubes      255         333         810         3023        6435        2953        769         4095        65535       115
+#Time       2.099       9.563       14.31       452.1       232.8       808.6       14.64       641.2       100000      234.5
+#Finished afer initial irredundant pass of      !93         !10         !6.2                    !1.3        123         201
 
 #This script employs a the espresso heuristic minimizer algorithim
 #It first imports the cover file as a uint8 numpy array with '0' '1' and '-' represented by 1, 2, and 3
@@ -45,15 +47,22 @@
 #Before the main loop, not neccesarilly be super optimal. The reduced cover is then used of generate a complement
 #Now we start the main loop, where it does reduce, expand, irredundatn in that order. Due to the randomness, the exit condition is different
 #Since it's possible to have multiple in a row that don't improve, followed by an improvement from
-#One of the randomizers finding a good order, the loop ends when there are a certain number of same length in a row
-#Once this value is reached, it tries one more thing before giving up
+#One of the randomizers finding a good order, the loop ends in the following conditions
+#First, if the initial irredundant pass takes over 104 seconds, it never even starts the loop 
+#This is because all of the Logic Minimization Benchmarks that take longer than this hit their minimum instantly
+#Followed by rediculously long loop iterations that don't do anything. The one exception is LM_T6 but it isn't graded
+#If it gets past this, it calculates the off set and begins the main reduce, expand, irredundant loop
+#If there are a certain number of iterations in a row that don't improve, it will end early
+#Otherwise, each iteration it uses the time of the prior iterations to recalculate a max iteration count
+#This is a dynamic way to enforce a time limit for execution while allowing max iterations
+#At one point we had it try one more  thing before giving up
 #Online it was suggested to try running the Last Gasp function at this point. This function
 #Takes anything that's close to expanding and forces it to by adding cubes to the cover
 #This gives it a chance to find a new solution and escape a local minimum. It saves the 
 #Best result before doing this, and will either do it again or stop if it gets back to this point
 #With an improvement or a regression/stagnation. The last gasp didn't ever do much though
-#Often just dragging out run time to propose a worse result
-#Once the algorithim runs out though, it returns and exports the cover
+#Often just dragging out run time to propose a worse result, so it was removed
+#Once the algorithim runs out, it returns and exports the cover
 
 import numpy as np
 import time
@@ -116,49 +125,58 @@ def irredundant_init(cover, vars_list):                                         
             keep[i] = True                                                                          #The cube is neccessary and should be put back in the keep list. If not, it stays removed
     return cover[keep]                                                                              #Return the irredundant cover
 
-def minimize(cover, vars_list, max_in_a_row):
-    t = time.perf_counter()
-    print("Initial Irredundant Pass...") # To guarantee a baseline SCC minimal cover before the heavy lifting
-    cover = np.array(list({tuple(cube) for cube in cover}), dtype=np.uint8) #Remove duplicate cubes
-    in_a_row = 0
-    iteration = 1
-    cover = irredundant_init(cover, vars_list)
-    prev_cube_count = len(cover)
-    print(f"Generated initial irredundant cover with {prev_cube_count} cubes in {(time.perf_counter() - t):.3f} sec\n")
+def minimize(cover, vars_list, max_in_a_row, max_time, max_init_time):                              #Main logic minimization function
+    t = time.perf_counter()                                                                         #Start a timer
+    print("Initial Irredundant Pass...")                                                            #Run an initial lightweight  minimization pass to get low hanging fruit before heavy lifting
+    cover = np.array(list({tuple(cube) for cube in cover}), dtype=np.uint8)                         #Cast the cover to and from a set to remove duplicate cubes
+    cover = irredundant_init(cover, vars_list)                                                      #Run a lightwieght version of the irredundant function on the remaining cubes
+    in_a_row = 1                                                                                    #Set the initial value for iterations in a row without change
+    iteration = 1                                                                                   #Set the initial iteration count
+    max_iterations = 10                                                                             #Set the initial max iteration count
+    average_iteration_time = 0                                                                      #Set the initial max iteration time
+    prev_cube_count = len(cover)                                                                    #Save the length of the current cover as the previous cover length
+    init_time = time.perf_counter() - t                                                             #Save the time for initial setup
+    print(f"Generated initial irredundant cover with {prev_cube_count} cubes in {(init_time):.3f} sec\n")
 
-    t = time.perf_counter()
+    if init_time > max_init_time:                                                                   #If initial setup time took too long, end the funciton
+        print("Initial irredundant pass exceeded threshold time for excessive covers, returning minimized cover")
+        return cover
+
+    t = time.perf_counter()                                                                         #Reset the timer
     print("Generating Complement...")
-    off_set = complement(cover, 0, ComplTracker())
-    print(f"Generated complement with {len(off_set)} cubes in {(time.perf_counter() - t):.3f} sec\n")
+    off_set = complement(cover, 0, ComplTracker())                                                  #Generate the off set cover
+    off_set_time = time.perf_counter() - t                                                          #Record the time it took
+    print(f"Generated complement with {len(off_set)} cubes in {(off_set_time):.3f} sec\n")
 
-    while True:   
-        print(f"Iteration {iteration}...")
-
-        t = time.perf_counter()
-        cover = reduce(cover, vars_list)
-        print(f"Reduction finished in {(time.perf_counter() - t):.3f} sec")
+    while True:                                                                                     #Start the reduce expand irredundant loop
+        t0 = time.perf_counter()                                                                    #Start a new timer to track full loop time
+        print(f"Iteration {iteration}...")                                                          #Print the current iteration     
+        cover = reduce(cover, vars_list)                                                            #Run reduction
+        print(f"Reduction finished in {(time.perf_counter() - t0):.3f} sec")                        #Print reduction time
         
-        t = time.perf_counter()
-        cover = expand(cover, off_set)
-        print(f"Expansion finished in {(time.perf_counter() - t):.3f} sec")
+        t = time.perf_counter()                                                                     #Start a second timer for in loop stuff
+        cover = expand(cover, off_set)                                                              #Run expand
+        print(f"Expansion finished in {(time.perf_counter() - t):.3f} sec")                         #Print the time it took to expand
         
-        t = time.perf_counter()
-        cover = irredundant(cover, vars_list)
-        new_cube_count = len(cover)
-        print(f"Irredundant finished in {(time.perf_counter() - t):.3f} sec with {new_cube_count} cubes\n")
+        t = time.perf_counter()                                                                     #Reset the second timer
+        cover = irredundant(cover, vars_list)                                                       #Run irredundant
+        new_cube_count = len(cover)                                                                 #Record the new cube count
+        print(f"Irredundant finished in {(time.perf_counter() - t):.3f} sec with {new_cube_count} cubes\n") #Print how long irredundant took and what the new cube count is
         
-        if new_cube_count >= prev_cube_count: in_a_row += 1
-        else: in_a_row = 0
-        prev_cube_count = len(cover)
-        iteration += 1
+        if new_cube_count >= prev_cube_count: in_a_row += 1                                         #If the new cube count isn't an improvement on the old, increment the in a row counter
+        else: in_a_row = 1                                                                          #If it was an imorovement, reset it to 1
+        if in_a_row >= max_in_a_row:                                                                #If the in a row counter hits the limit
+            print(f"Max iterations in a row without improvement reached, returning minimized cover")
+            return cover                                                                            #Return the current cover
+        prev_cube_count = new_cube_count                                                            #If it gets past the in a row checks, pass the new cube count to be the prior cube count
 
-        #Add a time buget thing where it calculates number of iterations to fill an hour
-        #loop count = (budget - initial setup time) / (first loop time)
-        #For now max in a row is fine, but looking at Test 4 where it gets to 499 with 5, but 496 with 31, they can always use more iterations
-        #Maybe still have max in a row but set it really high, I'm just worried about it being too high and running out the hour
-
-        if in_a_row >= max_in_a_row:
-            return cover
+        iteration_time = time.perf_counter() - t0                                                   #End the loop timer
+        average_iteration_time = (iteration_time + average_iteration_time * (iteration - 1)) / iteration    #Recalculate the average loop time
+        max_iterations = (max_time - off_set_time - init_time) / average_iteration_time             #Use the initial time, off set time, and average loop time to calculate max iteration within the time limit
+        iteration += 1                                                                              #Increment the iteration count for the next loop
+        if iteration > max_iterations or (off_set_time + init_time + average_iteration_time * iteration) > max_time:    #If the max iterations limit will be reached or the time limit is already exceeded
+            print("Max calculated iterations for allowed time reached. Returning minimized cover")
+            return cover                                                                            #Return the current cover instead of looping 
 
 if __name__ == "__main__":
     start_time = time.perf_counter()
@@ -168,7 +186,7 @@ if __name__ == "__main__":
             
     start_time = time.perf_counter()
     np.random.seed(1234)
-    minimized_cover = minimize(cover, ilb, 5)
+    minimized_cover = minimize(cover, ilb, 65535, 3600, 104) #Max in a row, max time, max init time
     print(f"Reduced from {len(cover)} cubes to {len(minimized_cover)} cubes in {(time.perf_counter() - start_time):.3f} sec\n")
     
     start_time = time.perf_counter()
