@@ -6,11 +6,11 @@
 #Test       1           2           3           4           5           6
 #Target     255         28          120         495         8192        65535
 #Cubes      255         28          122         499
-#Time       2.241       0.249       3.482       59.63
+#Time       2.461       0.247       3.450       48.21
 #Bench      1           2           3           4           5           6           7           8           9           10
 #Target     255         330         799         NA          6435        2943        769         4095        65535       115
-#Cubes      255         333         810
-#Time       1.973       9.288       15.73
+#Cubes      255         333         810         3023        6435        2953        769         4095                    115
+#Time       2.099       9.563       14.31       452.1       232.8       808.6       14.64       641.2                   234.5
 
 #This script employs a the espresso heuristic minimizer algorithim
 #It first imports the cover file as a uint8 numpy array with '0' '1' and '-' represented by 1, 2, and 3
@@ -40,10 +40,8 @@
 #It then runs a modified version of the irredundant function called irredundat_init
 #The only difference is that init uses a different method of building the others array
 #instead of using a conditional for loop to create a list and casting it back to an np array
-#It applies the keep mask to the cover, then takes that, creates another mask of any cubes that don't equal the current one
-#And applies that mask. This method should produce the same result, but it doesn't
-#It's not known why or how it's different, but the results are usually lower quality
-#That said, it's much faster, so it's used for this initial pass since it just needs to get the size down
+#It just applies the keep mask to the cover. Since duplicates are filtered at the start, the keep mask is sufficient
+#This drastically increases speed, but since duplicates can come up after expand, it's not viable for the normal irredundant
 #Before the main loop, not neccesarilly be super optimal. The reduced cover is then used of generate a complement
 #Now we start the main loop, where it does reduce, expand, irredundatn in that order. Due to the randomness, the exit condition is different
 #Since it's possible to have multiple in a row that don't improve, followed by an improvement from
@@ -112,9 +110,10 @@ def irredundant_init(cover, vars_list):                                         
     num_cubes = len(cover)                                                                          #Get the number of cubes in the cover
     keep = np.ones(num_cubes, dtype=bool)                                                           #Create a list of 'True' with an entry for each cube
     for i, cube in enumerate(cover):                                                                #Iterate through all the cubes
-        others = cover[keep]                                                                        #Create a sub cover without any other cubes that were already marked for removal
-        others = others[(others != cube).any(axis=1)]                                               #Remove the curent cube form the sub cover (can't use np.delete since indexis is funny)
-        if is_tautology(cofactor_cube(others, cube), vars_list, 0, Tracker())[0]: keep[i] = False   #If the cofactor of the sub cover with respect to the cube is a tautology, mark it for removal
+        keep[i] = False                                                                             #Mark the current cube as false so it's not included (this works since duplicates were already culled in minimize())
+        others = cover[keep]                                                                        #Creates sub cover without previously removed cubes, or the current cub
+        if not is_tautology(cofactor_cube(others, cube), vars_list, 0, Tracker())[0]:               #If the cofactor of the subcover with respect to the cube is not a tautology
+            keep[i] = True                                                                          #The cube is neccessary and should be put back in the keep list. If not, it stays removed
     return cover[keep]                                                                              #Return the irredundant cover
 
 def minimize(cover, vars_list, max_in_a_row):
@@ -156,6 +155,7 @@ def minimize(cover, vars_list, max_in_a_row):
         #Add a time buget thing where it calculates number of iterations to fill an hour
         #loop count = (budget - initial setup time) / (first loop time)
         #For now max in a row is fine, but looking at Test 4 where it gets to 499 with 5, but 496 with 31, they can always use more iterations
+        #Maybe still have max in a row but set it really high, I'm just worried about it being too high and running out the hour
 
         if in_a_row >= max_in_a_row:
             return cover
