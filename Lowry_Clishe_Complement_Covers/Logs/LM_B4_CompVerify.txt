@@ -1,0 +1,31 @@
+File 1: 3006 cubes
+File 2: 4004 cubes
+Checking Tautology on Union (7010 total cubes)...
+
+--- Verification Result ---
+Status                : PASS (The covers form a tautology)
+Time Taken            : 0.174 sec
+
+	Command being timed: "python3 ./Lowry_Clishe_CompVerify.py Lowry_Clishe_Minimized/LM_B4_minimal Lowry_Clishe_Complement_Covers/LM_B4_compl"
+	User time (seconds): 2.33
+	System time (seconds): 0.03
+	Percent of CPU this job got: 542%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.43
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 30120
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4703
+	Voluntary context switches: 325
+	Involuntary context switches: 339
+	Swaps: 0
+	File system inputs: 104
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

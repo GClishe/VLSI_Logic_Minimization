@@ -1,0 +1,3251 @@
+Parsed Logic Minimization Benchmarks/LM_B4 containing 84084 cubes in 0.091 sec
+
+Initial Irredundant Pass...
+Generated initial irredundant cover with 3727 cubes in 93.015 sec
+
+Generating Complement...
+Generated complement with 4004 cubes in 0.451 sec
+
+Iteration 1...
+Reduction finished in 1.290 sec
+Expansion finished in 3.528 sec
+Irredundant finished in 2.478 sec with 3448 cubes
+
+Iteration 2...
+Reduction finished in 1.149 sec
+Expansion finished in 3.234 sec
+Irredundant finished in 2.166 sec with 3341 cubes
+
+Iteration 3...
+Reduction finished in 1.120 sec
+Expansion finished in 3.098 sec
+Irredundant finished in 2.048 sec with 3288 cubes
+
+Iteration 4...
+Reduction finished in 1.093 sec
+Expansion finished in 3.027 sec
+Irredundant finished in 1.990 sec with 3240 cubes
+
+Iteration 5...
+Reduction finished in 1.077 sec
+Expansion finished in 2.999 sec
+Irredundant finished in 1.927 sec with 3195 cubes
+
+Iteration 6...
+Reduction finished in 1.056 sec
+Expansion finished in 2.934 sec
+Irredundant finished in 1.880 sec with 3168 cubes
+
+Iteration 7...
+Reduction finished in 1.044 sec
+Expansion finished in 2.933 sec
+Irredundant finished in 1.843 sec with 3154 cubes
+
+Iteration 8...
+Reduction finished in 1.043 sec
+Expansion finished in 2.926 sec
+Irredundant finished in 1.836 sec with 3140 cubes
+
+Iteration 9...
+Reduction finished in 1.030 sec
+Expansion finished in 2.901 sec
+Irredundant finished in 1.816 sec with 3128 cubes
+
+Iteration 10...
+Reduction finished in 1.028 sec
+Expansion finished in 2.877 sec
+Irredundant finished in 1.801 sec with 3116 cubes
+
+Iteration 11...
+Reduction finished in 1.020 sec
+Expansion finished in 2.872 sec
+Irredundant finished in 1.787 sec with 3111 cubes
+
+Iteration 12...
+Reduction finished in 1.022 sec
+Expansion finished in 2.860 sec
+Irredundant finished in 1.780 sec with 3101 cubes
+
+Iteration 13...
+Reduction finished in 1.022 sec
+Expansion finished in 2.860 sec
+Irredundant finished in 1.771 sec with 3096 cubes
+
+Iteration 14...
+Reduction finished in 1.017 sec
+Expansion finished in 2.845 sec
+Irredundant finished in 1.767 sec with 3091 cubes
+
+Iteration 15...
+Reduction finished in 1.017 sec
+Expansion finished in 2.846 sec
+Irredundant finished in 1.762 sec with 3085 cubes
+
+Iteration 16...
+Reduction finished in 1.014 sec
+Expansion finished in 2.843 sec
+Irredundant finished in 1.757 sec with 3082 cubes
+
+Iteration 17...
+Reduction finished in 1.019 sec
+Expansion finished in 2.829 sec
+Irredundant finished in 1.753 sec with 3080 cubes
+
+Iteration 18...
+Reduction finished in 1.020 sec
+Expansion finished in 2.832 sec
+Irredundant finished in 1.752 sec with 3076 cubes
+
+Iteration 19...
+Reduction finished in 1.013 sec
+Expansion finished in 2.818 sec
+Irredundant finished in 1.746 sec with 3073 cubes
+
+Iteration 20...
+Reduction finished in 1.010 sec
+Expansion finished in 2.823 sec
+Irredundant finished in 1.743 sec with 3071 cubes
+
+Iteration 21...
+Reduction finished in 1.006 sec
+Expansion finished in 2.828 sec
+Irredundant finished in 1.742 sec with 3068 cubes
+
+Iteration 22...
+Reduction finished in 1.014 sec
+Expansion finished in 2.811 sec
+Irredundant finished in 1.734 sec with 3061 cubes
+
+Iteration 23...
+Reduction finished in 1.003 sec
+Expansion finished in 2.810 sec
+Irredundant finished in 1.741 sec with 3060 cubes
+
+Iteration 24...
+Reduction finished in 1.014 sec
+Expansion finished in 2.826 sec
+Irredundant finished in 1.737 sec with 3055 cubes
+
+Iteration 25...
+Reduction finished in 1.003 sec
+Expansion finished in 2.798 sec
+Irredundant finished in 1.730 sec with 3054 cubes
+
+Iteration 26...
+Reduction finished in 0.999 sec
+Expansion finished in 2.806 sec
+Irredundant finished in 1.724 sec with 3053 cubes
+
+Iteration 27...
+Reduction finished in 1.000 sec
+Expansion finished in 2.795 sec
+Irredundant finished in 1.727 sec with 3052 cubes
+
+Iteration 28...
+Reduction finished in 1.006 sec
+Expansion finished in 2.807 sec
+Irredundant finished in 1.722 sec with 3051 cubes
+
+Iteration 29...
+Reduction finished in 1.014 sec
+Expansion finished in 2.791 sec
+Irredundant finished in 1.716 sec with 3051 cubes
+
+Iteration 30...
+Reduction finished in 1.003 sec
+Expansion finished in 2.805 sec
+Irredundant finished in 1.734 sec with 3050 cubes
+
+Iteration 31...
+Reduction finished in 1.000 sec
+Expansion finished in 2.820 sec
+Irredundant finished in 1.741 sec with 3048 cubes
+
+Iteration 32...
+Reduction finished in 1.009 sec
+Expansion finished in 2.802 sec
+Irredundant finished in 1.718 sec with 3046 cubes
+
+Iteration 33...
+Reduction finished in 1.013 sec
+Expansion finished in 2.820 sec
+Irredundant finished in 1.711 sec with 3044 cubes
+
+Iteration 34...
+Reduction finished in 0.997 sec
+Expansion finished in 2.819 sec
+Irredundant finished in 1.716 sec with 3042 cubes
+
+Iteration 35...
+Reduction finished in 0.996 sec
+Expansion finished in 2.815 sec
+Irredundant finished in 1.710 sec with 3042 cubes
+
+Iteration 36...
+Reduction finished in 0.997 sec
+Expansion finished in 2.818 sec
+Irredundant finished in 1.708 sec with 3037 cubes
+
+Iteration 37...
+Reduction finished in 0.994 sec
+Expansion finished in 2.813 sec
+Irredundant finished in 1.702 sec with 3037 cubes
+
+Iteration 38...
+Reduction finished in 1.000 sec
+Expansion finished in 2.798 sec
+Irredundant finished in 1.704 sec with 3035 cubes
+
+Iteration 39...
+Reduction finished in 1.002 sec
+Expansion finished in 2.808 sec
+Irredundant finished in 1.701 sec with 3035 cubes
+
+Iteration 40...
+Reduction finished in 0.998 sec
+Expansion finished in 2.796 sec
+Irredundant finished in 1.700 sec with 3034 cubes
+
+Iteration 41...
+Reduction finished in 1.005 sec
+Expansion finished in 2.805 sec
+Irredundant finished in 1.694 sec with 3034 cubes
+
+Iteration 42...
+Reduction finished in 1.001 sec
+Expansion finished in 2.794 sec
+Irredundant finished in 1.699 sec with 3031 cubes
+
+Iteration 43...
+Reduction finished in 0.997 sec
+Expansion finished in 2.795 sec
+Irredundant finished in 1.697 sec with 3031 cubes
+
+Iteration 44...
+Reduction finished in 1.004 sec
+Expansion finished in 2.802 sec
+Irredundant finished in 1.703 sec with 3031 cubes
+
+Iteration 45...
+Reduction finished in 1.004 sec
+Expansion finished in 2.803 sec
+Irredundant finished in 1.698 sec with 3031 cubes
+
+Iteration 46...
+Reduction finished in 0.998 sec
+Expansion finished in 2.807 sec
+Irredundant finished in 1.699 sec with 3031 cubes
+
+Iteration 47...
+Reduction finished in 0.997 sec
+Expansion finished in 2.795 sec
+Irredundant finished in 1.695 sec with 3029 cubes
+
+Iteration 48...
+Reduction finished in 0.996 sec
+Expansion finished in 2.800 sec
+Irredundant finished in 1.696 sec with 3029 cubes
+
+Iteration 49...
+Reduction finished in 0.996 sec
+Expansion finished in 2.786 sec
+Irredundant finished in 1.694 sec with 3029 cubes
+
+Iteration 50...
+Reduction finished in 0.998 sec
+Expansion finished in 2.800 sec
+Irredundant finished in 1.692 sec with 3029 cubes
+
+Iteration 51...
+Reduction finished in 0.996 sec
+Expansion finished in 2.794 sec
+Irredundant finished in 1.694 sec with 3028 cubes
+
+Iteration 52...
+Reduction finished in 1.004 sec
+Expansion finished in 2.803 sec
+Irredundant finished in 1.690 sec with 3027 cubes
+
+Iteration 53...
+Reduction finished in 0.999 sec
+Expansion finished in 2.787 sec
+Irredundant finished in 1.691 sec with 3027 cubes
+
+Iteration 54...
+Reduction finished in 1.000 sec
+Expansion finished in 2.799 sec
+Irredundant finished in 1.685 sec with 3027 cubes
+
+Iteration 55...
+Reduction finished in 0.998 sec
+Expansion finished in 2.789 sec
+Irredundant finished in 1.695 sec with 3026 cubes
+
+Iteration 56...
+Reduction finished in 0.997 sec
+Expansion finished in 2.796 sec
+Irredundant finished in 1.687 sec with 3025 cubes
+
+Iteration 57...
+Reduction finished in 0.995 sec
+Expansion finished in 2.784 sec
+Irredundant finished in 1.690 sec with 3025 cubes
+
+Iteration 58...
+Reduction finished in 0.999 sec
+Expansion finished in 2.793 sec
+Irredundant finished in 1.686 sec with 3025 cubes
+
+Iteration 59...
+Reduction finished in 0.997 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.688 sec with 3023 cubes
+
+Iteration 60...
+Reduction finished in 1.000 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.688 sec with 3023 cubes
+
+Iteration 61...
+Reduction finished in 0.995 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.686 sec with 3023 cubes
+
+Iteration 62...
+Reduction finished in 0.994 sec
+Expansion finished in 2.794 sec
+Irredundant finished in 1.684 sec with 3023 cubes
+
+Iteration 63...
+Reduction finished in 0.995 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.684 sec with 3023 cubes
+
+Iteration 64...
+Reduction finished in 0.991 sec
+Expansion finished in 2.794 sec
+Irredundant finished in 1.685 sec with 3023 cubes
+
+Iteration 65...
+Reduction finished in 0.992 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.683 sec with 3023 cubes
+
+Iteration 66...
+Reduction finished in 0.991 sec
+Expansion finished in 2.797 sec
+Irredundant finished in 1.682 sec with 3023 cubes
+
+Iteration 67...
+Reduction finished in 0.992 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.684 sec with 3023 cubes
+
+Iteration 68...
+Reduction finished in 0.986 sec
+Expansion finished in 2.796 sec
+Irredundant finished in 1.694 sec with 3023 cubes
+
+Iteration 69...
+Reduction finished in 0.994 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.685 sec with 3023 cubes
+
+Iteration 70...
+Reduction finished in 0.997 sec
+Expansion finished in 2.795 sec
+Irredundant finished in 1.683 sec with 3023 cubes
+
+Iteration 71...
+Reduction finished in 0.996 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.683 sec with 3022 cubes
+
+Iteration 72...
+Reduction finished in 0.990 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.684 sec with 3022 cubes
+
+Iteration 73...
+Reduction finished in 0.992 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.683 sec with 3022 cubes
+
+Iteration 74...
+Reduction finished in 0.989 sec
+Expansion finished in 2.794 sec
+Irredundant finished in 1.686 sec with 3022 cubes
+
+Iteration 75...
+Reduction finished in 0.983 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.684 sec with 3022 cubes
+
+Iteration 76...
+Reduction finished in 0.987 sec
+Expansion finished in 2.792 sec
+Irredundant finished in 1.683 sec with 3022 cubes
+
+Iteration 77...
+Reduction finished in 0.986 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.683 sec with 3022 cubes
+
+Iteration 78...
+Reduction finished in 0.990 sec
+Expansion finished in 2.794 sec
+Irredundant finished in 1.686 sec with 3022 cubes
+
+Iteration 79...
+Reduction finished in 0.990 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.682 sec with 3022 cubes
+
+Iteration 80...
+Reduction finished in 0.993 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.688 sec with 3022 cubes
+
+Iteration 81...
+Reduction finished in 0.986 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.685 sec with 3022 cubes
+
+Iteration 82...
+Reduction finished in 0.990 sec
+Expansion finished in 2.795 sec
+Irredundant finished in 1.682 sec with 3021 cubes
+
+Iteration 83...
+Reduction finished in 0.993 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.680 sec with 3021 cubes
+
+Iteration 84...
+Reduction finished in 0.991 sec
+Expansion finished in 2.793 sec
+Irredundant finished in 1.683 sec with 3021 cubes
+
+Iteration 85...
+Reduction finished in 0.994 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.682 sec with 3021 cubes
+
+Iteration 86...
+Reduction finished in 0.988 sec
+Expansion finished in 2.793 sec
+Irredundant finished in 1.685 sec with 3021 cubes
+
+Iteration 87...
+Reduction finished in 0.989 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.685 sec with 3021 cubes
+
+Iteration 88...
+Reduction finished in 0.992 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.685 sec with 3021 cubes
+
+Iteration 89...
+Reduction finished in 0.992 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.686 sec with 3021 cubes
+
+Iteration 90...
+Reduction finished in 0.994 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.685 sec with 3021 cubes
+
+Iteration 91...
+Reduction finished in 0.992 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.689 sec with 3021 cubes
+
+Iteration 92...
+Reduction finished in 0.994 sec
+Expansion finished in 2.793 sec
+Irredundant finished in 1.683 sec with 3021 cubes
+
+Iteration 93...
+Reduction finished in 0.993 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.682 sec with 3021 cubes
+
+Iteration 94...
+Reduction finished in 0.990 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.687 sec with 3021 cubes
+
+Iteration 95...
+Reduction finished in 0.998 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.685 sec with 3021 cubes
+
+Iteration 96...
+Reduction finished in 0.991 sec
+Expansion finished in 2.795 sec
+Irredundant finished in 1.681 sec with 3021 cubes
+
+Iteration 97...
+Reduction finished in 0.990 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.687 sec with 3021 cubes
+
+Iteration 98...
+Reduction finished in 0.997 sec
+Expansion finished in 2.792 sec
+Irredundant finished in 1.690 sec with 3021 cubes
+
+Iteration 99...
+Reduction finished in 0.991 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.688 sec with 3021 cubes
+
+Iteration 100...
+Reduction finished in 0.998 sec
+Expansion finished in 2.791 sec
+Irredundant finished in 1.689 sec with 3021 cubes
+
+Iteration 101...
+Reduction finished in 1.001 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.690 sec with 3021 cubes
+
+Iteration 102...
+Reduction finished in 0.996 sec
+Expansion finished in 2.799 sec
+Irredundant finished in 1.689 sec with 3021 cubes
+
+Iteration 103...
+Reduction finished in 0.995 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.689 sec with 3021 cubes
+
+Iteration 104...
+Reduction finished in 0.997 sec
+Expansion finished in 2.788 sec
+Irredundant finished in 1.685 sec with 3020 cubes
+
+Iteration 105...
+Reduction finished in 0.990 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.687 sec with 3020 cubes
+
+Iteration 106...
+Reduction finished in 0.991 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.684 sec with 3020 cubes
+
+Iteration 107...
+Reduction finished in 0.989 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.683 sec with 3020 cubes
+
+Iteration 108...
+Reduction finished in 0.991 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.681 sec with 3020 cubes
+
+Iteration 109...
+Reduction finished in 0.990 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.685 sec with 3020 cubes
+
+Iteration 110...
+Reduction finished in 0.989 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.685 sec with 3020 cubes
+
+Iteration 111...
+Reduction finished in 1.004 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.685 sec with 3020 cubes
+
+Iteration 112...
+Reduction finished in 0.999 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.682 sec with 3020 cubes
+
+Iteration 113...
+Reduction finished in 0.989 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.685 sec with 3020 cubes
+
+Iteration 114...
+Reduction finished in 0.990 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.684 sec with 3020 cubes
+
+Iteration 115...
+Reduction finished in 0.991 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.684 sec with 3020 cubes
+
+Iteration 116...
+Reduction finished in 0.990 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.683 sec with 3020 cubes
+
+Iteration 117...
+Reduction finished in 0.998 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.679 sec with 3020 cubes
+
+Iteration 118...
+Reduction finished in 0.992 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.685 sec with 3020 cubes
+
+Iteration 119...
+Reduction finished in 0.996 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.680 sec with 3020 cubes
+
+Iteration 120...
+Reduction finished in 0.992 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.681 sec with 3020 cubes
+
+Iteration 121...
+Reduction finished in 0.994 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.687 sec with 3020 cubes
+
+Iteration 122...
+Reduction finished in 0.996 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.680 sec with 3020 cubes
+
+Iteration 123...
+Reduction finished in 0.994 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.682 sec with 3020 cubes
+
+Iteration 124...
+Reduction finished in 0.992 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.681 sec with 3019 cubes
+
+Iteration 125...
+Reduction finished in 0.998 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.679 sec with 3019 cubes
+
+Iteration 126...
+Reduction finished in 0.988 sec
+Expansion finished in 2.784 sec
+Irredundant finished in 1.681 sec with 3019 cubes
+
+Iteration 127...
+Reduction finished in 0.997 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.684 sec with 3019 cubes
+
+Iteration 128...
+Reduction finished in 1.003 sec
+Expansion finished in 2.791 sec
+Irredundant finished in 1.684 sec with 3019 cubes
+
+Iteration 129...
+Reduction finished in 0.998 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.684 sec with 3019 cubes
+
+Iteration 130...
+Reduction finished in 1.000 sec
+Expansion finished in 2.788 sec
+Irredundant finished in 1.683 sec with 3019 cubes
+
+Iteration 131...
+Reduction finished in 1.009 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.683 sec with 3019 cubes
+
+Iteration 132...
+Reduction finished in 0.996 sec
+Expansion finished in 2.789 sec
+Irredundant finished in 1.683 sec with 3019 cubes
+
+Iteration 133...
+Reduction finished in 0.989 sec
+Expansion finished in 2.786 sec
+Irredundant finished in 1.682 sec with 3019 cubes
+
+Iteration 134...
+Reduction finished in 0.988 sec
+Expansion finished in 2.786 sec
+Irredundant finished in 1.678 sec with 3018 cubes
+
+Iteration 135...
+Reduction finished in 0.994 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.673 sec with 3017 cubes
+
+Iteration 136...
+Reduction finished in 0.988 sec
+Expansion finished in 2.787 sec
+Irredundant finished in 1.678 sec with 3017 cubes
+
+Iteration 137...
+Reduction finished in 0.995 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.671 sec with 3017 cubes
+
+Iteration 138...
+Reduction finished in 0.985 sec
+Expansion finished in 2.787 sec
+Irredundant finished in 1.677 sec with 3016 cubes
+
+Iteration 139...
+Reduction finished in 0.986 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.674 sec with 3016 cubes
+
+Iteration 140...
+Reduction finished in 0.987 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.676 sec with 3015 cubes
+
+Iteration 141...
+Reduction finished in 0.994 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.667 sec with 3015 cubes
+
+Iteration 142...
+Reduction finished in 0.988 sec
+Expansion finished in 2.785 sec
+Irredundant finished in 1.669 sec with 3015 cubes
+
+Iteration 143...
+Reduction finished in 0.985 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.675 sec with 3015 cubes
+
+Iteration 144...
+Reduction finished in 0.986 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.671 sec with 3015 cubes
+
+Iteration 145...
+Reduction finished in 0.985 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.667 sec with 3014 cubes
+
+Iteration 146...
+Reduction finished in 0.985 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.672 sec with 3014 cubes
+
+Iteration 147...
+Reduction finished in 0.990 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.675 sec with 3014 cubes
+
+Iteration 148...
+Reduction finished in 0.997 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.673 sec with 3014 cubes
+
+Iteration 149...
+Reduction finished in 0.998 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.677 sec with 3014 cubes
+
+Iteration 150...
+Reduction finished in 0.996 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.676 sec with 3014 cubes
+
+Iteration 151...
+Reduction finished in 0.993 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.674 sec with 3014 cubes
+
+Iteration 152...
+Reduction finished in 0.987 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.674 sec with 3014 cubes
+
+Iteration 153...
+Reduction finished in 0.982 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.674 sec with 3014 cubes
+
+Iteration 154...
+Reduction finished in 0.990 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.676 sec with 3014 cubes
+
+Iteration 155...
+Reduction finished in 0.980 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.672 sec with 3014 cubes
+
+Iteration 156...
+Reduction finished in 0.988 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.676 sec with 3014 cubes
+
+Iteration 157...
+Reduction finished in 0.981 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.686 sec with 3014 cubes
+
+Iteration 158...
+Reduction finished in 0.991 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.668 sec with 3014 cubes
+
+Iteration 159...
+Reduction finished in 0.990 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.680 sec with 3014 cubes
+
+Iteration 160...
+Reduction finished in 0.986 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.669 sec with 3014 cubes
+
+Iteration 161...
+Reduction finished in 0.993 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.672 sec with 3014 cubes
+
+Iteration 162...
+Reduction finished in 0.985 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.672 sec with 3014 cubes
+
+Iteration 163...
+Reduction finished in 0.992 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.677 sec with 3014 cubes
+
+Iteration 164...
+Reduction finished in 0.987 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.678 sec with 3014 cubes
+
+Iteration 165...
+Reduction finished in 0.994 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.674 sec with 3014 cubes
+
+Iteration 166...
+Reduction finished in 0.986 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.680 sec with 3014 cubes
+
+Iteration 167...
+Reduction finished in 1.000 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.677 sec with 3014 cubes
+
+Iteration 168...
+Reduction finished in 0.990 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.682 sec with 3014 cubes
+
+Iteration 169...
+Reduction finished in 0.996 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.676 sec with 3014 cubes
+
+Iteration 170...
+Reduction finished in 0.989 sec
+Expansion finished in 2.787 sec
+Irredundant finished in 1.676 sec with 3014 cubes
+
+Iteration 171...
+Reduction finished in 0.999 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.674 sec with 3013 cubes
+
+Iteration 172...
+Reduction finished in 0.989 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.672 sec with 3013 cubes
+
+Iteration 173...
+Reduction finished in 0.983 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.670 sec with 3013 cubes
+
+Iteration 174...
+Reduction finished in 0.985 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.675 sec with 3013 cubes
+
+Iteration 175...
+Reduction finished in 0.988 sec
+Expansion finished in 2.786 sec
+Irredundant finished in 1.669 sec with 3013 cubes
+
+Iteration 176...
+Reduction finished in 0.986 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.676 sec with 3013 cubes
+
+Iteration 177...
+Reduction finished in 0.986 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.677 sec with 3013 cubes
+
+Iteration 178...
+Reduction finished in 0.989 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.675 sec with 3013 cubes
+
+Iteration 179...
+Reduction finished in 0.989 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.674 sec with 3013 cubes
+
+Iteration 180...
+Reduction finished in 0.992 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.676 sec with 3013 cubes
+
+Iteration 181...
+Reduction finished in 0.989 sec
+Expansion finished in 2.785 sec
+Irredundant finished in 1.673 sec with 3012 cubes
+
+Iteration 182...
+Reduction finished in 0.988 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 183...
+Reduction finished in 0.991 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.676 sec with 3012 cubes
+
+Iteration 184...
+Reduction finished in 0.989 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.676 sec with 3012 cubes
+
+Iteration 185...
+Reduction finished in 0.993 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.670 sec with 3012 cubes
+
+Iteration 186...
+Reduction finished in 0.991 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.676 sec with 3012 cubes
+
+Iteration 187...
+Reduction finished in 0.995 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.676 sec with 3012 cubes
+
+Iteration 188...
+Reduction finished in 0.999 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.691 sec with 3012 cubes
+
+Iteration 189...
+Reduction finished in 0.995 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.672 sec with 3012 cubes
+
+Iteration 190...
+Reduction finished in 0.984 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 191...
+Reduction finished in 0.989 sec
+Expansion finished in 2.803 sec
+Irredundant finished in 1.675 sec with 3012 cubes
+
+Iteration 192...
+Reduction finished in 0.987 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 193...
+Reduction finished in 0.992 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.673 sec with 3012 cubes
+
+Iteration 194...
+Reduction finished in 0.995 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.678 sec with 3012 cubes
+
+Iteration 195...
+Reduction finished in 0.989 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.675 sec with 3012 cubes
+
+Iteration 196...
+Reduction finished in 0.987 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.677 sec with 3012 cubes
+
+Iteration 197...
+Reduction finished in 0.993 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.675 sec with 3012 cubes
+
+Iteration 198...
+Reduction finished in 0.997 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.673 sec with 3012 cubes
+
+Iteration 199...
+Reduction finished in 0.989 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 200...
+Reduction finished in 0.992 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 201...
+Reduction finished in 0.992 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.676 sec with 3012 cubes
+
+Iteration 202...
+Reduction finished in 0.997 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.676 sec with 3012 cubes
+
+Iteration 203...
+Reduction finished in 0.994 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.671 sec with 3012 cubes
+
+Iteration 204...
+Reduction finished in 0.988 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.673 sec with 3012 cubes
+
+Iteration 205...
+Reduction finished in 0.991 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 206...
+Reduction finished in 1.006 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.674 sec with 3012 cubes
+
+Iteration 207...
+Reduction finished in 0.989 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.670 sec with 3012 cubes
+
+Iteration 208...
+Reduction finished in 0.996 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.675 sec with 3012 cubes
+
+Iteration 209...
+Reduction finished in 0.989 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.673 sec with 3012 cubes
+
+Iteration 210...
+Reduction finished in 0.997 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.671 sec with 3011 cubes
+
+Iteration 211...
+Reduction finished in 0.990 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.673 sec with 3011 cubes
+
+Iteration 212...
+Reduction finished in 0.988 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.675 sec with 3011 cubes
+
+Iteration 213...
+Reduction finished in 0.985 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.674 sec with 3011 cubes
+
+Iteration 214...
+Reduction finished in 0.984 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.671 sec with 3011 cubes
+
+Iteration 215...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 216...
+Reduction finished in 0.987 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.667 sec with 3011 cubes
+
+Iteration 217...
+Reduction finished in 0.996 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.668 sec with 3011 cubes
+
+Iteration 218...
+Reduction finished in 0.989 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.673 sec with 3011 cubes
+
+Iteration 219...
+Reduction finished in 0.991 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 220...
+Reduction finished in 0.987 sec
+Expansion finished in 2.823 sec
+Irredundant finished in 1.665 sec with 3011 cubes
+
+Iteration 221...
+Reduction finished in 0.986 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.676 sec with 3011 cubes
+
+Iteration 222...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.663 sec with 3011 cubes
+
+Iteration 223...
+Reduction finished in 0.988 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.667 sec with 3011 cubes
+
+Iteration 224...
+Reduction finished in 0.986 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.671 sec with 3011 cubes
+
+Iteration 225...
+Reduction finished in 0.992 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 226...
+Reduction finished in 0.991 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.669 sec with 3011 cubes
+
+Iteration 227...
+Reduction finished in 0.991 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.670 sec with 3011 cubes
+
+Iteration 228...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.669 sec with 3011 cubes
+
+Iteration 229...
+Reduction finished in 0.985 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.668 sec with 3011 cubes
+
+Iteration 230...
+Reduction finished in 0.985 sec
+Expansion finished in 2.785 sec
+Irredundant finished in 1.669 sec with 3011 cubes
+
+Iteration 231...
+Reduction finished in 0.991 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.671 sec with 3011 cubes
+
+Iteration 232...
+Reduction finished in 0.994 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.670 sec with 3011 cubes
+
+Iteration 233...
+Reduction finished in 0.991 sec
+Expansion finished in 2.784 sec
+Irredundant finished in 1.667 sec with 3011 cubes
+
+Iteration 234...
+Reduction finished in 0.996 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.675 sec with 3011 cubes
+
+Iteration 235...
+Reduction finished in 0.992 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.679 sec with 3011 cubes
+
+Iteration 236...
+Reduction finished in 0.986 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.674 sec with 3011 cubes
+
+Iteration 237...
+Reduction finished in 0.992 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.674 sec with 3011 cubes
+
+Iteration 238...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.674 sec with 3011 cubes
+
+Iteration 239...
+Reduction finished in 0.990 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 240...
+Reduction finished in 0.983 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.670 sec with 3011 cubes
+
+Iteration 241...
+Reduction finished in 0.983 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 242...
+Reduction finished in 0.989 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.670 sec with 3011 cubes
+
+Iteration 243...
+Reduction finished in 0.994 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.674 sec with 3011 cubes
+
+Iteration 244...
+Reduction finished in 0.985 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 245...
+Reduction finished in 0.988 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.676 sec with 3011 cubes
+
+Iteration 246...
+Reduction finished in 0.985 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 247...
+Reduction finished in 0.994 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.672 sec with 3011 cubes
+
+Iteration 248...
+Reduction finished in 0.992 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.673 sec with 3011 cubes
+
+Iteration 249...
+Reduction finished in 0.982 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.674 sec with 3010 cubes
+
+Iteration 250...
+Reduction finished in 0.984 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.668 sec with 3010 cubes
+
+Iteration 251...
+Reduction finished in 0.994 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.668 sec with 3010 cubes
+
+Iteration 252...
+Reduction finished in 0.988 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.664 sec with 3010 cubes
+
+Iteration 253...
+Reduction finished in 0.991 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.661 sec with 3010 cubes
+
+Iteration 254...
+Reduction finished in 0.987 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.668 sec with 3010 cubes
+
+Iteration 255...
+Reduction finished in 0.990 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.666 sec with 3010 cubes
+
+Iteration 256...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.668 sec with 3010 cubes
+
+Iteration 257...
+Reduction finished in 0.990 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.671 sec with 3010 cubes
+
+Iteration 258...
+Reduction finished in 0.993 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.666 sec with 3010 cubes
+
+Iteration 259...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.670 sec with 3010 cubes
+
+Iteration 260...
+Reduction finished in 0.984 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 261...
+Reduction finished in 0.988 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 262...
+Reduction finished in 0.992 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 263...
+Reduction finished in 0.985 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 264...
+Reduction finished in 0.984 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 265...
+Reduction finished in 0.983 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 266...
+Reduction finished in 0.988 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 267...
+Reduction finished in 0.985 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 268...
+Reduction finished in 0.988 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 269...
+Reduction finished in 0.986 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 270...
+Reduction finished in 0.991 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 271...
+Reduction finished in 0.990 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 272...
+Reduction finished in 0.984 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 273...
+Reduction finished in 0.985 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 274...
+Reduction finished in 0.986 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 275...
+Reduction finished in 0.986 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 276...
+Reduction finished in 0.982 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 277...
+Reduction finished in 0.985 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 278...
+Reduction finished in 0.984 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 279...
+Reduction finished in 0.987 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 280...
+Reduction finished in 0.986 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 281...
+Reduction finished in 0.984 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 282...
+Reduction finished in 0.991 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.662 sec with 3009 cubes
+
+Iteration 283...
+Reduction finished in 0.981 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 284...
+Reduction finished in 0.990 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 285...
+Reduction finished in 0.984 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 286...
+Reduction finished in 0.986 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 287...
+Reduction finished in 0.984 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 288...
+Reduction finished in 0.991 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 289...
+Reduction finished in 0.984 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 290...
+Reduction finished in 0.986 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 291...
+Reduction finished in 0.984 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 292...
+Reduction finished in 0.992 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 293...
+Reduction finished in 0.987 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 294...
+Reduction finished in 0.988 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 295...
+Reduction finished in 0.987 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 296...
+Reduction finished in 0.991 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 297...
+Reduction finished in 0.986 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.663 sec with 3009 cubes
+
+Iteration 298...
+Reduction finished in 0.988 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 299...
+Reduction finished in 0.990 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 300...
+Reduction finished in 0.990 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 301...
+Reduction finished in 0.989 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 302...
+Reduction finished in 0.997 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.679 sec with 3009 cubes
+
+Iteration 303...
+Reduction finished in 0.990 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 304...
+Reduction finished in 0.987 sec
+Expansion finished in 2.784 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 305...
+Reduction finished in 0.984 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 306...
+Reduction finished in 0.992 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 307...
+Reduction finished in 0.990 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 308...
+Reduction finished in 0.988 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 309...
+Reduction finished in 0.990 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 310...
+Reduction finished in 0.985 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 311...
+Reduction finished in 0.990 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.663 sec with 3009 cubes
+
+Iteration 312...
+Reduction finished in 0.985 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 313...
+Reduction finished in 0.998 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.661 sec with 3009 cubes
+
+Iteration 314...
+Reduction finished in 0.986 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 315...
+Reduction finished in 0.991 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.661 sec with 3009 cubes
+
+Iteration 316...
+Reduction finished in 0.985 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 317...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 318...
+Reduction finished in 0.985 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 319...
+Reduction finished in 0.992 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 320...
+Reduction finished in 0.985 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 321...
+Reduction finished in 0.992 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 322...
+Reduction finished in 1.004 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 323...
+Reduction finished in 0.994 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 324...
+Reduction finished in 0.994 sec
+Expansion finished in 2.790 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 325...
+Reduction finished in 0.991 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 326...
+Reduction finished in 0.982 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 327...
+Reduction finished in 0.993 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 328...
+Reduction finished in 0.991 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 329...
+Reduction finished in 0.989 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 330...
+Reduction finished in 0.989 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 331...
+Reduction finished in 0.991 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 332...
+Reduction finished in 0.986 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 333...
+Reduction finished in 0.992 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 334...
+Reduction finished in 0.985 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 335...
+Reduction finished in 0.993 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.662 sec with 3009 cubes
+
+Iteration 336...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 337...
+Reduction finished in 0.992 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 338...
+Reduction finished in 0.986 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 339...
+Reduction finished in 0.981 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 340...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 341...
+Reduction finished in 0.979 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 342...
+Reduction finished in 0.985 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 343...
+Reduction finished in 0.979 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 344...
+Reduction finished in 0.985 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 345...
+Reduction finished in 0.990 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 346...
+Reduction finished in 0.984 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 347...
+Reduction finished in 0.995 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 348...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 349...
+Reduction finished in 0.989 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 350...
+Reduction finished in 0.988 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 351...
+Reduction finished in 0.988 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 352...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 353...
+Reduction finished in 0.992 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 354...
+Reduction finished in 0.985 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 355...
+Reduction finished in 0.993 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 356...
+Reduction finished in 0.988 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 357...
+Reduction finished in 0.984 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 358...
+Reduction finished in 0.986 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 359...
+Reduction finished in 0.994 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 360...
+Reduction finished in 0.987 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 361...
+Reduction finished in 0.985 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 362...
+Reduction finished in 0.986 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 363...
+Reduction finished in 0.984 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 364...
+Reduction finished in 0.990 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 365...
+Reduction finished in 0.986 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 366...
+Reduction finished in 0.993 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.676 sec with 3009 cubes
+
+Iteration 367...
+Reduction finished in 0.980 sec
+Expansion finished in 2.769 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 368...
+Reduction finished in 0.984 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 369...
+Reduction finished in 0.984 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 370...
+Reduction finished in 0.992 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 371...
+Reduction finished in 0.987 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 372...
+Reduction finished in 0.996 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 373...
+Reduction finished in 0.984 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 374...
+Reduction finished in 0.984 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 375...
+Reduction finished in 0.986 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 376...
+Reduction finished in 0.999 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 377...
+Reduction finished in 0.999 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 378...
+Reduction finished in 0.988 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.677 sec with 3009 cubes
+
+Iteration 379...
+Reduction finished in 0.994 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.680 sec with 3009 cubes
+
+Iteration 380...
+Reduction finished in 0.995 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 381...
+Reduction finished in 0.996 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 382...
+Reduction finished in 0.984 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 383...
+Reduction finished in 0.984 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 384...
+Reduction finished in 0.983 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 385...
+Reduction finished in 0.983 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 386...
+Reduction finished in 0.982 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 387...
+Reduction finished in 0.983 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 388...
+Reduction finished in 0.987 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 389...
+Reduction finished in 0.983 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 390...
+Reduction finished in 0.992 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 391...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 392...
+Reduction finished in 0.995 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 393...
+Reduction finished in 0.983 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 394...
+Reduction finished in 0.984 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 395...
+Reduction finished in 0.984 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.677 sec with 3009 cubes
+
+Iteration 396...
+Reduction finished in 0.997 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 397...
+Reduction finished in 0.985 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 398...
+Reduction finished in 0.986 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 399...
+Reduction finished in 0.984 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 400...
+Reduction finished in 0.991 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 401...
+Reduction finished in 0.987 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 402...
+Reduction finished in 0.993 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 403...
+Reduction finished in 0.985 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 404...
+Reduction finished in 0.984 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 405...
+Reduction finished in 0.985 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 406...
+Reduction finished in 0.988 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 407...
+Reduction finished in 0.992 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 408...
+Reduction finished in 0.990 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.663 sec with 3009 cubes
+
+Iteration 409...
+Reduction finished in 0.988 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 410...
+Reduction finished in 0.986 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 411...
+Reduction finished in 0.985 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 412...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 413...
+Reduction finished in 0.983 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 414...
+Reduction finished in 0.989 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 415...
+Reduction finished in 0.984 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 416...
+Reduction finished in 0.984 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 417...
+Reduction finished in 0.989 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 418...
+Reduction finished in 0.993 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 419...
+Reduction finished in 0.982 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 420...
+Reduction finished in 0.984 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 421...
+Reduction finished in 0.982 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 422...
+Reduction finished in 0.984 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 423...
+Reduction finished in 0.986 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 424...
+Reduction finished in 0.987 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 425...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 426...
+Reduction finished in 0.993 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 427...
+Reduction finished in 0.985 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 428...
+Reduction finished in 0.983 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 429...
+Reduction finished in 0.992 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 430...
+Reduction finished in 0.986 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 431...
+Reduction finished in 0.992 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 432...
+Reduction finished in 0.987 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 433...
+Reduction finished in 0.991 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 434...
+Reduction finished in 0.987 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 435...
+Reduction finished in 0.995 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 436...
+Reduction finished in 0.986 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 437...
+Reduction finished in 0.990 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 438...
+Reduction finished in 0.992 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 439...
+Reduction finished in 0.997 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 440...
+Reduction finished in 0.989 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 441...
+Reduction finished in 0.989 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 442...
+Reduction finished in 0.994 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 443...
+Reduction finished in 0.989 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 444...
+Reduction finished in 0.984 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 445...
+Reduction finished in 0.987 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 446...
+Reduction finished in 0.994 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 447...
+Reduction finished in 0.988 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 448...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 449...
+Reduction finished in 0.983 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 450...
+Reduction finished in 0.985 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 451...
+Reduction finished in 0.983 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 452...
+Reduction finished in 0.984 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 453...
+Reduction finished in 0.984 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 454...
+Reduction finished in 0.985 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 455...
+Reduction finished in 0.983 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 456...
+Reduction finished in 0.988 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 457...
+Reduction finished in 0.986 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 458...
+Reduction finished in 0.984 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 459...
+Reduction finished in 0.983 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 460...
+Reduction finished in 0.981 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 461...
+Reduction finished in 0.983 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 462...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 463...
+Reduction finished in 0.984 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 464...
+Reduction finished in 0.988 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.660 sec with 3009 cubes
+
+Iteration 465...
+Reduction finished in 0.988 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 466...
+Reduction finished in 0.984 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 467...
+Reduction finished in 0.985 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 468...
+Reduction finished in 0.986 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 469...
+Reduction finished in 0.981 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 470...
+Reduction finished in 0.983 sec
+Expansion finished in 2.783 sec
+Irredundant finished in 1.664 sec with 3009 cubes
+
+Iteration 471...
+Reduction finished in 0.987 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 472...
+Reduction finished in 0.987 sec
+Expansion finished in 2.798 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 473...
+Reduction finished in 0.982 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 474...
+Reduction finished in 0.987 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 475...
+Reduction finished in 0.983 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 476...
+Reduction finished in 0.986 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 477...
+Reduction finished in 0.983 sec
+Expansion finished in 2.766 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 478...
+Reduction finished in 0.984 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.663 sec with 3009 cubes
+
+Iteration 479...
+Reduction finished in 0.985 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 480...
+Reduction finished in 0.989 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 481...
+Reduction finished in 0.988 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 482...
+Reduction finished in 0.987 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.675 sec with 3009 cubes
+
+Iteration 483...
+Reduction finished in 0.991 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 484...
+Reduction finished in 0.982 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 485...
+Reduction finished in 0.990 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 486...
+Reduction finished in 0.988 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 487...
+Reduction finished in 0.993 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 488...
+Reduction finished in 0.990 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 489...
+Reduction finished in 0.993 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 490...
+Reduction finished in 0.985 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 491...
+Reduction finished in 0.988 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 492...
+Reduction finished in 0.987 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.667 sec with 3009 cubes
+
+Iteration 493...
+Reduction finished in 0.991 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 494...
+Reduction finished in 0.986 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 495...
+Reduction finished in 0.986 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 496...
+Reduction finished in 0.992 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.665 sec with 3009 cubes
+
+Iteration 497...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 498...
+Reduction finished in 0.984 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.666 sec with 3009 cubes
+
+Iteration 499...
+Reduction finished in 0.989 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 500...
+Reduction finished in 0.988 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 501...
+Reduction finished in 0.985 sec
+Expansion finished in 2.780 sec
+Irredundant finished in 1.673 sec with 3009 cubes
+
+Iteration 502...
+Reduction finished in 0.988 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.668 sec with 3009 cubes
+
+Iteration 503...
+Reduction finished in 0.983 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.672 sec with 3009 cubes
+
+Iteration 504...
+Reduction finished in 0.987 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 505...
+Reduction finished in 0.989 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 506...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.680 sec with 3009 cubes
+
+Iteration 507...
+Reduction finished in 0.992 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.669 sec with 3009 cubes
+
+Iteration 508...
+Reduction finished in 0.986 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.671 sec with 3009 cubes
+
+Iteration 509...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.670 sec with 3009 cubes
+
+Iteration 510...
+Reduction finished in 0.987 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.674 sec with 3009 cubes
+
+Iteration 511...
+Reduction finished in 0.991 sec
+Expansion finished in 2.781 sec
+Irredundant finished in 1.674 sec with 3008 cubes
+
+Iteration 512...
+Reduction finished in 0.993 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 513...
+Reduction finished in 0.992 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 514...
+Reduction finished in 0.996 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.671 sec with 3008 cubes
+
+Iteration 515...
+Reduction finished in 0.987 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.668 sec with 3008 cubes
+
+Iteration 516...
+Reduction finished in 0.992 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.667 sec with 3008 cubes
+
+Iteration 517...
+Reduction finished in 0.981 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.666 sec with 3008 cubes
+
+Iteration 518...
+Reduction finished in 0.990 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 519...
+Reduction finished in 0.986 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.670 sec with 3008 cubes
+
+Iteration 520...
+Reduction finished in 0.990 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.662 sec with 3008 cubes
+
+Iteration 521...
+Reduction finished in 0.982 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.664 sec with 3008 cubes
+
+Iteration 522...
+Reduction finished in 0.990 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.663 sec with 3008 cubes
+
+Iteration 523...
+Reduction finished in 0.983 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.666 sec with 3008 cubes
+
+Iteration 524...
+Reduction finished in 0.992 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 525...
+Reduction finished in 0.989 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.671 sec with 3008 cubes
+
+Iteration 526...
+Reduction finished in 0.984 sec
+Expansion finished in 2.767 sec
+Irredundant finished in 1.667 sec with 3008 cubes
+
+Iteration 527...
+Reduction finished in 0.988 sec
+Expansion finished in 2.782 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 528...
+Reduction finished in 0.975 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.664 sec with 3008 cubes
+
+Iteration 529...
+Reduction finished in 0.979 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.670 sec with 3008 cubes
+
+Iteration 530...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.671 sec with 3008 cubes
+
+Iteration 531...
+Reduction finished in 0.983 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.663 sec with 3008 cubes
+
+Iteration 532...
+Reduction finished in 0.992 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.664 sec with 3008 cubes
+
+Iteration 533...
+Reduction finished in 0.983 sec
+Expansion finished in 2.779 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 534...
+Reduction finished in 0.991 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.667 sec with 3008 cubes
+
+Iteration 535...
+Reduction finished in 0.993 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.667 sec with 3008 cubes
+
+Iteration 536...
+Reduction finished in 0.993 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.666 sec with 3008 cubes
+
+Iteration 537...
+Reduction finished in 0.983 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.668 sec with 3008 cubes
+
+Iteration 538...
+Reduction finished in 0.989 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.668 sec with 3008 cubes
+
+Iteration 539...
+Reduction finished in 0.994 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.671 sec with 3008 cubes
+
+Iteration 540...
+Reduction finished in 0.993 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.668 sec with 3008 cubes
+
+Iteration 541...
+Reduction finished in 0.981 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.668 sec with 3008 cubes
+
+Iteration 542...
+Reduction finished in 0.991 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.667 sec with 3008 cubes
+
+Iteration 543...
+Reduction finished in 0.983 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.669 sec with 3008 cubes
+
+Iteration 544...
+Reduction finished in 0.990 sec
+Expansion finished in 2.768 sec
+Irredundant finished in 1.670 sec with 3008 cubes
+
+Iteration 545...
+Reduction finished in 0.980 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.674 sec with 3008 cubes
+
+Iteration 546...
+Reduction finished in 0.984 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.668 sec with 3007 cubes
+
+Iteration 547...
+Reduction finished in 0.996 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.664 sec with 3007 cubes
+
+Iteration 548...
+Reduction finished in 0.979 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.667 sec with 3007 cubes
+
+Iteration 549...
+Reduction finished in 0.983 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.667 sec with 3007 cubes
+
+Iteration 550...
+Reduction finished in 0.988 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.669 sec with 3007 cubes
+
+Iteration 551...
+Reduction finished in 0.979 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.664 sec with 3007 cubes
+
+Iteration 552...
+Reduction finished in 0.982 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.669 sec with 3007 cubes
+
+Iteration 553...
+Reduction finished in 0.985 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.670 sec with 3007 cubes
+
+Iteration 554...
+Reduction finished in 0.991 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.670 sec with 3007 cubes
+
+Iteration 555...
+Reduction finished in 0.982 sec
+Expansion finished in 2.784 sec
+Irredundant finished in 1.670 sec with 3007 cubes
+
+Iteration 556...
+Reduction finished in 0.990 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.670 sec with 3007 cubes
+
+Iteration 557...
+Reduction finished in 0.983 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.664 sec with 3007 cubes
+
+Iteration 558...
+Reduction finished in 0.983 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.671 sec with 3007 cubes
+
+Iteration 559...
+Reduction finished in 0.985 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.663 sec with 3007 cubes
+
+Iteration 560...
+Reduction finished in 0.983 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.668 sec with 3007 cubes
+
+Iteration 561...
+Reduction finished in 0.988 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.674 sec with 3007 cubes
+
+Iteration 562...
+Reduction finished in 0.995 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.671 sec with 3007 cubes
+
+Iteration 563...
+Reduction finished in 0.988 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.666 sec with 3007 cubes
+
+Iteration 564...
+Reduction finished in 0.986 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.670 sec with 3007 cubes
+
+Iteration 565...
+Reduction finished in 0.985 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3007 cubes
+
+Iteration 566...
+Reduction finished in 0.984 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.667 sec with 3007 cubes
+
+Iteration 567...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.668 sec with 3007 cubes
+
+Iteration 568...
+Reduction finished in 0.985 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.668 sec with 3007 cubes
+
+Iteration 569...
+Reduction finished in 0.991 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.674 sec with 3007 cubes
+
+Iteration 570...
+Reduction finished in 0.995 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.673 sec with 3007 cubes
+
+Iteration 571...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.673 sec with 3007 cubes
+
+Iteration 572...
+Reduction finished in 0.985 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.668 sec with 3007 cubes
+
+Iteration 573...
+Reduction finished in 0.988 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.674 sec with 3007 cubes
+
+Iteration 574...
+Reduction finished in 0.984 sec
+Expansion finished in 2.756 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Iteration 575...
+Reduction finished in 0.988 sec
+Expansion finished in 2.771 sec
+Irredundant finished in 1.666 sec with 3006 cubes
+
+Iteration 576...
+Reduction finished in 0.991 sec
+Expansion finished in 2.755 sec
+Irredundant finished in 1.662 sec with 3006 cubes
+
+Iteration 577...
+Reduction finished in 0.983 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.675 sec with 3006 cubes
+
+Iteration 578...
+Reduction finished in 0.993 sec
+Expansion finished in 2.757 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Iteration 579...
+Reduction finished in 0.984 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.668 sec with 3006 cubes
+
+Iteration 580...
+Reduction finished in 0.991 sec
+Expansion finished in 2.757 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 581...
+Reduction finished in 0.984 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.668 sec with 3006 cubes
+
+Iteration 582...
+Reduction finished in 0.995 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.661 sec with 3006 cubes
+
+Iteration 583...
+Reduction finished in 0.982 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.663 sec with 3006 cubes
+
+Iteration 584...
+Reduction finished in 0.991 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 585...
+Reduction finished in 0.985 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 586...
+Reduction finished in 0.988 sec
+Expansion finished in 2.757 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 587...
+Reduction finished in 0.981 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 588...
+Reduction finished in 0.977 sec
+Expansion finished in 2.754 sec
+Irredundant finished in 1.666 sec with 3006 cubes
+
+Iteration 589...
+Reduction finished in 0.985 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.674 sec with 3006 cubes
+
+Iteration 590...
+Reduction finished in 0.980 sec
+Expansion finished in 2.756 sec
+Irredundant finished in 1.666 sec with 3006 cubes
+
+Iteration 591...
+Reduction finished in 0.992 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 592...
+Reduction finished in 0.991 sec
+Expansion finished in 2.757 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 593...
+Reduction finished in 0.985 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 594...
+Reduction finished in 0.990 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.662 sec with 3006 cubes
+
+Iteration 595...
+Reduction finished in 0.985 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.666 sec with 3006 cubes
+
+Iteration 596...
+Reduction finished in 0.989 sec
+Expansion finished in 2.757 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 597...
+Reduction finished in 0.984 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 598...
+Reduction finished in 0.992 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.665 sec with 3006 cubes
+
+Iteration 599...
+Reduction finished in 0.984 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 600...
+Reduction finished in 0.990 sec
+Expansion finished in 2.764 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 601...
+Reduction finished in 0.995 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 602...
+Reduction finished in 1.006 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 603...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.668 sec with 3006 cubes
+
+Iteration 604...
+Reduction finished in 0.993 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Iteration 605...
+Reduction finished in 0.986 sec
+Expansion finished in 2.774 sec
+Irredundant finished in 1.673 sec with 3006 cubes
+
+Iteration 606...
+Reduction finished in 0.986 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 607...
+Reduction finished in 0.989 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 608...
+Reduction finished in 0.991 sec
+Expansion finished in 2.759 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 609...
+Reduction finished in 0.989 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 610...
+Reduction finished in 0.992 sec
+Expansion finished in 2.758 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Iteration 611...
+Reduction finished in 0.993 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Iteration 612...
+Reduction finished in 0.997 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 613...
+Reduction finished in 0.990 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 614...
+Reduction finished in 0.994 sec
+Expansion finished in 2.756 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 615...
+Reduction finished in 0.985 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.662 sec with 3006 cubes
+
+Iteration 616...
+Reduction finished in 0.985 sec
+Expansion finished in 2.765 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 617...
+Reduction finished in 0.992 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 618...
+Reduction finished in 0.982 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.672 sec with 3006 cubes
+
+Iteration 619...
+Reduction finished in 0.983 sec
+Expansion finished in 2.773 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 620...
+Reduction finished in 0.988 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.662 sec with 3006 cubes
+
+Iteration 621...
+Reduction finished in 0.986 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.665 sec with 3006 cubes
+
+Iteration 622...
+Reduction finished in 0.985 sec
+Expansion finished in 2.763 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 623...
+Reduction finished in 0.985 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.668 sec with 3006 cubes
+
+Iteration 624...
+Reduction finished in 0.989 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.663 sec with 3006 cubes
+
+Iteration 625...
+Reduction finished in 0.986 sec
+Expansion finished in 2.772 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 626...
+Reduction finished in 0.997 sec
+Expansion finished in 2.770 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 627...
+Reduction finished in 0.985 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 628...
+Reduction finished in 0.995 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.668 sec with 3006 cubes
+
+Iteration 629...
+Reduction finished in 0.994 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.674 sec with 3006 cubes
+
+Iteration 630...
+Reduction finished in 0.994 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 631...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 632...
+Reduction finished in 0.993 sec
+Expansion finished in 2.762 sec
+Irredundant finished in 1.664 sec with 3006 cubes
+
+Iteration 633...
+Reduction finished in 0.992 sec
+Expansion finished in 2.775 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 634...
+Reduction finished in 0.998 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 635...
+Reduction finished in 0.994 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 636...
+Reduction finished in 0.995 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Iteration 637...
+Reduction finished in 0.987 sec
+Expansion finished in 2.778 sec
+Irredundant finished in 1.674 sec with 3006 cubes
+
+Iteration 638...
+Reduction finished in 0.993 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.670 sec with 3006 cubes
+
+Iteration 639...
+Reduction finished in 0.989 sec
+Expansion finished in 2.777 sec
+Irredundant finished in 1.669 sec with 3006 cubes
+
+Iteration 640...
+Reduction finished in 0.990 sec
+Expansion finished in 2.761 sec
+Irredundant finished in 1.667 sec with 3006 cubes
+
+Iteration 641...
+Reduction finished in 0.989 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.666 sec with 3006 cubes
+
+Iteration 642...
+Reduction finished in 0.990 sec
+Expansion finished in 2.760 sec
+Irredundant finished in 1.668 sec with 3006 cubes
+
+Iteration 643...
+Reduction finished in 0.991 sec
+Expansion finished in 2.776 sec
+Irredundant finished in 1.671 sec with 3006 cubes
+
+Max calculated iterations for allowed time reached. Returning minimized cover
+Reduced from 84084 cubes to 3006 cubes in 3598.365 sec
+
+Cover exported to Lowry_Clishe_Minimized/LM_B4_minimal in 0.012 sec
+
+	Command being timed: "python3 ./Lowry_Clishe_Minimizer.py Logic Minimization Benchmarks/LM_B4"
+	User time (seconds): 3600.50
+	System time (seconds): 0.04
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 59:58.82
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 90056
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 26400
+	Voluntary context switches: 370
+	Involuntary context switches: 25994
+	Swaps: 0
+	File system inputs: 256
+	File system outputs: 104
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

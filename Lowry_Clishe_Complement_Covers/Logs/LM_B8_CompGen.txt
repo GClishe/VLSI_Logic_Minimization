@@ -1,0 +1,40 @@
+
+Parsed Logic Minimization Benchmarks/LM_B8 containing 6142 cubes in 0.020 sec
+
+--- Complementation Results ---
+Original Cubes: 6142
+Complement Cubes (SCC Minimal): 33322
+
+--- Algorithm Statistics ---
+Cover Is Empty:                 129 times in 0.003 sec
+Cover Was a Single Cube:        6124 times in 0.041 sec
+Cover Was a Tautology:          9 times in 0.084 sec
+Complement Via Cofactor:        6261 times in 0.048 sec
+Max Recursion Depth:            23
+Time to Generate Complement:    0.200 sec
+
+Exported complement to Lowry_Clishe_Complement_Covers/LM_B8_compl in 0.073 sec
+
+	Command being timed: "python3 ./Lowry_Clishe_CompGen.py Logic Minimization Benchmarks/LM_B8"
+	User time (seconds): 2.45
+	System time (seconds): 0.01
+	Percent of CPU this job got: 498%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.49
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 41688
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 11223
+	Voluntary context switches: 244
+	Involuntary context switches: 223
+	Swaps: 0
+	File system inputs: 344
+	File system outputs: 1760
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

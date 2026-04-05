@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/home/lowryst/VLSI_DesignAutomation/HW3/./Lowry_Clishe_CompVerify.py", line 15, in <module>
+    cover2, _, _ = parse_espresso(file2)
+  File "/home/lowryst/VLSI_DesignAutomation/HW3/Lowry_Clishe_TautCheck.py", line 72, in parse_espresso
+    with open(filepath, 'r') as f: lines = f.readlines()                                            #Open the file and import the lines
+FileNotFoundError: [Errno 2] No such file or directory: 'Lowry_Clishe_Complement_Covers/TC_T8_compl'
+Command exited with non-zero status 1
+	Command being timed: "python3 ./Lowry_Clishe_CompVerify.py Tautology-Checking-Tests/TC_T8 Lowry_Clishe_Complement_Covers/TC_T8_compl"
+	User time (seconds): 2.64
+	System time (seconds): 0.02
+	Percent of CPU this job got: 370%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.72
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 145652
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 32675
+	Voluntary context switches: 234
+	Involuntary context switches: 348
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

@@ -1,0 +1,40 @@
+
+Parsed Tautology-Checking-Benchmarks/TC_B8 containing 10000 cubes in 0.032 sec
+
+--- Complementation Results ---
+Original Cubes: 10000
+Complement Cubes (SCC Minimal): 1426983
+
+--- Algorithm Statistics ---
+Cover Is Empty:                 24679 times in 0.066 sec
+Cover Was a Single Cube:        56707 times in 1.225 sec
+Cover Was a Tautology:          1 times in 2.666 sec
+Complement Via Cofactor:        81386 times in 0.631 sec
+Max Recursion Depth:            48
+Time to Generate Complement:    5.529 sec
+
+Exported complement to Lowry_Clishe_Complement_Covers/TC_B8_compl in 5.295 sec
+
+	Command being timed: "python3 ./Lowry_Clishe_CompGen.py Tautology-Checking-Benchmarks/TC_B8"
+	User time (seconds): 12.05
+	System time (seconds): 0.36
+	Percent of CPU this job got: 112%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1145876
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 116195
+	Voluntary context switches: 1948
+	Involuntary context switches: 106
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 147720
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

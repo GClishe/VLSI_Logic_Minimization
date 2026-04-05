@@ -1,0 +1,206 @@
+Parsed Logic Minimization Benchmarks/LM_B8 containing 6142 cubes in 0.012 sec
+
+Initial Irredundant Pass...
+Generated initial irredundant cover with 6142 cubes in 1.331 sec
+
+Generating Complement...
+Generated complement with 33322 cubes in 0.196 sec
+
+Iteration 1...
+Reduction finished in 3.734 sec
+Expansion finished in 114.036 sec
+Irredundant finished in 9.116 sec with 4095 cubes
+
+Iteration 2...
+Reduction finished in 24.907 sec
+Expansion finished in 72.728 sec
+Irredundant finished in 5.462 sec with 4095 cubes
+
+Iteration 3...
+Reduction finished in 24.390 sec
+Expansion finished in 72.580 sec
+Irredundant finished in 5.452 sec with 4095 cubes
+
+Iteration 4...
+Reduction finished in 24.269 sec
+Expansion finished in 75.884 sec
+Irredundant finished in 5.455 sec with 4095 cubes
+
+Iteration 5...
+Reduction finished in 24.939 sec
+Expansion finished in 72.009 sec
+Irredundant finished in 5.465 sec with 4095 cubes
+
+Iteration 6...
+Reduction finished in 24.485 sec
+Expansion finished in 72.066 sec
+Irredundant finished in 5.471 sec with 4095 cubes
+
+Iteration 7...
+Reduction finished in 24.533 sec
+Expansion finished in 71.600 sec
+Irredundant finished in 5.468 sec with 4095 cubes
+
+Iteration 8...
+Reduction finished in 24.597 sec
+Expansion finished in 72.679 sec
+Irredundant finished in 5.461 sec with 4095 cubes
+
+Iteration 9...
+Reduction finished in 24.777 sec
+Expansion finished in 72.314 sec
+Irredundant finished in 5.456 sec with 4095 cubes
+
+Iteration 10...
+Reduction finished in 24.494 sec
+Expansion finished in 72.715 sec
+Irredundant finished in 5.453 sec with 4095 cubes
+
+Iteration 11...
+Reduction finished in 24.589 sec
+Expansion finished in 72.175 sec
+Irredundant finished in 5.479 sec with 4095 cubes
+
+Iteration 12...
+Reduction finished in 24.935 sec
+Expansion finished in 72.807 sec
+Irredundant finished in 5.463 sec with 4095 cubes
+
+Iteration 13...
+Reduction finished in 24.891 sec
+Expansion finished in 71.948 sec
+Irredundant finished in 5.459 sec with 4095 cubes
+
+Iteration 14...
+Reduction finished in 24.155 sec
+Expansion finished in 73.108 sec
+Irredundant finished in 5.465 sec with 4095 cubes
+
+Iteration 15...
+Reduction finished in 24.330 sec
+Expansion finished in 72.245 sec
+Irredundant finished in 5.449 sec with 4095 cubes
+
+Iteration 16...
+Reduction finished in 24.412 sec
+Expansion finished in 72.947 sec
+Irredundant finished in 5.469 sec with 4095 cubes
+
+Iteration 17...
+Reduction finished in 24.415 sec
+Expansion finished in 72.182 sec
+Irredundant finished in 5.470 sec with 4095 cubes
+
+Iteration 18...
+Reduction finished in 24.554 sec
+Expansion finished in 72.856 sec
+Irredundant finished in 5.462 sec with 4095 cubes
+
+Iteration 19...
+Reduction finished in 24.656 sec
+Expansion finished in 72.293 sec
+Irredundant finished in 5.459 sec with 4095 cubes
+
+Iteration 20...
+Reduction finished in 24.380 sec
+Expansion finished in 73.055 sec
+Irredundant finished in 5.480 sec with 4095 cubes
+
+Iteration 21...
+Reduction finished in 23.915 sec
+Expansion finished in 72.039 sec
+Irredundant finished in 5.461 sec with 4095 cubes
+
+Iteration 22...
+Reduction finished in 23.930 sec
+Expansion finished in 75.827 sec
+Irredundant finished in 5.470 sec with 4095 cubes
+
+Iteration 23...
+Reduction finished in 24.785 sec
+Expansion finished in 72.044 sec
+Irredundant finished in 5.453 sec with 4095 cubes
+
+Iteration 24...
+Reduction finished in 23.987 sec
+Expansion finished in 75.754 sec
+Irredundant finished in 5.465 sec with 4095 cubes
+
+Iteration 25...
+Reduction finished in 24.504 sec
+Expansion finished in 72.031 sec
+Irredundant finished in 5.463 sec with 4095 cubes
+
+Iteration 26...
+Reduction finished in 24.672 sec
+Expansion finished in 75.692 sec
+Irredundant finished in 5.458 sec with 4095 cubes
+
+Iteration 27...
+Reduction finished in 24.323 sec
+Expansion finished in 72.044 sec
+Irredundant finished in 5.457 sec with 4095 cubes
+
+Iteration 28...
+Reduction finished in 24.958 sec
+Expansion finished in 75.764 sec
+Irredundant finished in 5.461 sec with 4095 cubes
+
+Iteration 29...
+Reduction finished in 24.509 sec
+Expansion finished in 71.770 sec
+Irredundant finished in 5.460 sec with 4095 cubes
+
+Iteration 30...
+Reduction finished in 24.395 sec
+Expansion finished in 75.803 sec
+Irredundant finished in 5.453 sec with 4095 cubes
+
+Iteration 31...
+Reduction finished in 24.542 sec
+Expansion finished in 71.786 sec
+Irredundant finished in 5.469 sec with 4095 cubes
+
+Iteration 32...
+Reduction finished in 24.586 sec
+Expansion finished in 75.744 sec
+Irredundant finished in 5.463 sec with 4095 cubes
+
+Iteration 33...
+Reduction finished in 25.027 sec
+Expansion finished in 70.213 sec
+Irredundant finished in 5.457 sec with 4095 cubes
+
+Iteration 34...
+Reduction finished in 24.511 sec
+Expansion finished in 74.040 sec
+Irredundant finished in 5.471 sec with 4095 cubes
+
+Max calculated iterations for allowed time reached. Returning minimized cover
+Reduced from 6142 cubes to 4095 cubes in 3528.782 sec
+
+Cover exported to Lowry_Clishe_Minimized/LM_B8_minimal in 0.016 sec
+
+	Command being timed: "python3 ./Lowry_Clishe_Minimizer.py Logic Minimization Benchmarks/LM_B8"
+	User time (seconds): 3530.44
+	System time (seconds): 0.43
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 58:49.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 48884
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 14509
+	Voluntary context switches: 390
+	Involuntary context switches: 10059
+	Swaps: 0
+	File system inputs: 312
+	File system outputs: 224
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

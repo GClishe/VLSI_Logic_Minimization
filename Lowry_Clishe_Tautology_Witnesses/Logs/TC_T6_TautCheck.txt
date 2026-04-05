@@ -1,0 +1,47 @@
+
+Parsed Tautology-Checking-Tests/TC_T6 with 10000 cubes in 0.038 sec
+
+--- Results for Tautology-Checking-Tests/TC_T6 ---
+
+Is Tautology?: NO
+
+--- Algorithm Statistics ---
+Cover Is Null:                             0 times in 0.003 sec
+No Dashes Check For 2^n Unique Cubes:      3509 times in 0.032 sec
+Found Universal Cube:                      73 times in 0.026 sec
+Found Column of All 1's or All 0's:        0 times in 0.073 sec
+All Columns Unate Without Universal Cube:  0 times in 0.009 sec
+No Universal Cube in Unate Sub-Cover:      0 times in 0.035 sec
+Unate Reduction:                           8740 times in 0.018 sec
+Binate Split:                              3589 times in 0.070 sec
+Max Recursive Layers:                      49 layers
+Time to Check Tautology:                   0.266 sec
+
+--- Witness Information ---
+Witness Cube:             10111110000010000110010101101111101110101010001011
+Witness file exported to: Lowry_Clishe_Tautology_Witnesses/TC_T6_off_cube
+Time to Generate Witness: 0.006 sec
+
+	Command being timed: "python3 ./Lowry_Clishe_TautCheck.py Tautology-Checking-Tests/TC_T6"
+	User time (seconds): 2.48
+	System time (seconds): 0.00
+	Percent of CPU this job got: 495%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.50
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 32304
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 5537
+	Voluntary context switches: 236
+	Involuntary context switches: 39
+	Swaps: 0
+	File system inputs: 1024
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
